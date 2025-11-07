@@ -2,100 +2,7 @@
    AUTH & MEMBER — Dr. Larry Reid Live
    =============================== */
 
-/* ===== LAYOUT WRAP ===== */
-.auth-wrap {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  background: #0a0f18;
-  color: #fff;
-}
-
-.auth-left {
-  position: relative;
-  background: url('/assets/channels4_banner.jpg') center/cover no-repeat;
-}
-.auth-blur {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(10,15,24,.2), rgba(10,15,24,.92));
-  backdrop-filter: blur(2px);
-}
-.auth-copy {
-  position: relative; z-index: 2;
-  max-width: 560px; margin: 12vh 6vw;
-}
-.auth-logo { width: 120px; margin-bottom: 1rem; }
-.auth-copy h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin: .2rem 0 1rem; font-weight: 900;
-  letter-spacing: .04em;
-  color: #ff3b3b;
-}
-.auth-copy p { color: #d9d9d9; line-height: 1.7; }
-
-/* RIGHT */
-.auth-right { display: grid; place-items: center; padding: 2rem; }
-.auth-card {
-  width: 100%; max-width: 460px;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 10px 28px rgba(0,0,0,.35);
-}
-.auth-card h1 {
-  margin: 0 0 1rem; color: #ff3b3b; font-size: 1.8rem; font-weight: 900;
-}
-
-.auth-form { display: grid; gap: .9rem; }
-.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
-.auth-form input {
-  padding: .9rem 1rem; border-radius: .6rem;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.08); color: #fff;
-}
-.auth-form input:focus { outline: 2px solid #ff3b3b; }
-
-.auth-error { color: #ff3b3b; font-size: .95rem; }
-
-.auth-actions { display: grid; gap: .7rem; margin-top: .6rem; }
-.link {
-  background: none; border: none; color: #ff3b3b; cursor: pointer; font-weight: 700;
-}
-
-.btn { 
-  display: inline-flex; justify-content: center; align-items: center;
-  padding: .85rem 1.2rem; border-radius: 1rem; font-weight: 800;
-  text-transform: uppercase; text-decoration: none; cursor: pointer;
-}
-.btn.primary { background: linear-gradient(135deg, #ff3b3b, #b71c1c); color: #fff; border: none; }
-.btn.outline { border: 2px solid #ff3b3b; color: #ff3b3b; background: transparent; }
-.btn.small { padding: .6rem 1rem; font-size: .9rem; }
-.btn.logout { background: transparent; border: 1px solid #ff3b3b; color: #ff3b3b; }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.25); }
-
-@media (max-width: 980px) {
-  .auth-wrap { grid-template-columns: 1fr; }
-  .auth-left { display: none; }
-}
-
-/* ===== MEMBER PAGE ===== */
-.member-page {
-  min-height: 80vh; display: grid; place-items: center; background: #0a0f18; color: #fff;
-}
-.member-card {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 1rem; padding: 2rem;
-  width: min(640px, 92%);
-  text-align: center;
-  box-shadow: 0 10px 28px rgba(0,0,0,.35);
-}
-.member-card h1 { color: #ff3b3b; margin-bottom: .5rem; }
-.member-card .muted { color: #cfcfcf; }
-
-.member-links { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; margin: 1.4rem 0 1rem; }
-/* ===== LOGIN PAGE STYLING ===== */
+/* ===== LOGIN PAGE ===== */
 .login-page {
   display: flex;
   justify-content: center;
@@ -109,21 +16,33 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   text-align: center;
   width: 100%;
   max-width: 420px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-card h1 {
   color: #ff3b3b;
   font-weight: 900;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.8rem;
+}
+
+.login-card form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* ✅ center all form elements */
 }
 
 .login-card input {
-  width: 100%;
+  width: 90%;                 /* ✅ narrower width for perfect centering */
   padding: 0.9rem 1rem;
   margin-bottom: 1rem;
   border-radius: 0.6rem;
@@ -131,6 +50,7 @@
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
   font-size: 1rem;
+  text-align: left;
 }
 
 .login-card input:focus {
@@ -143,8 +63,45 @@
   margin-bottom: 1rem;
 }
 
-.switch {
+.btn {
+  padding: 0.85rem 1.4rem;
+  border-radius: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
+  text-align: center;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #4FC3F7, #0288D1);
+  color: #fff;
+  border: none;
+  width: 90%;                 /* ✅ match input width for alignment */
+}
+
+.btn.outline {
+  border: 2px solid #4FC3F7;
+  color: #4FC3F7;
+  background: transparent;
+}
+
+.btn.small {
+  font-size: 0.9rem;
+  padding: 0.6rem 1rem;
   margin-top: 1rem;
+  border-radius: 1rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
+}
+
+.switch {
+  margin-top: 1.2rem;
+  text-align: center;
 }
 
 .switch span {
@@ -153,8 +110,83 @@
   font-weight: 700;
 }
 
-.btn.small {
+.switch span:hover {
+  text-decoration: underline;
+}
+
+/* Center "Back to Home" link */
+.login-card .btn.outline.small {
   margin-top: 1rem;
-  font-size: 0.9rem;
-  padding: 0.6rem 1rem;
+  display: block;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* ===== MEMBER PAGE ===== */
+.member-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: #0a0f18;
+  color: #fff;
+  text-align: center;
+}
+
+.member-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.member-card h2 {
+  color: #ff3b3b;
+  margin-bottom: 1rem;
+  font-weight: 900;
+}
+
+.member-card p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.member-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn.logout {
+  border: 1px solid #ff3b3b;
+  background: transparent;
+  color: #ff3b3b;
+}
+
+.btn.logout:hover {
+  background: #ff3b3b;
+  color: #fff;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 640px) {
+  .login-card input,
+  .btn.primary {
+    width: 100%;
+  }
+
+  .login-card .btn.outline.small {
+    width: 80%;
+  }
+
+  .member-card {
+    padding: 1.5rem;
+  }
 }

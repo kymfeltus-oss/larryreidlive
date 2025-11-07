@@ -1,67 +1,118 @@
-/* MUSIC — Apple-style grid, brand red */
+/* ===============================
+   MUSIC PAGE — Dr. Larry Reid Live
+   =============================== */
 
+/* ===== HERO SECTION ===== */
 .music-hero {
-  position: relative; text-align: center; padding: 6rem 1.5rem 4rem;
-  background: linear-gradient(180deg, rgba(10,15,24,.95), rgba(10,15,24,1)); color:#fff; overflow:hidden;
+  position: relative;
+  text-align: center;
+  padding: 6rem 1.5rem 4rem;
+  background: linear-gradient(180deg, rgba(10,15,24,.95), rgba(10,15,24,1));
+  color:#fff;
+  overflow:hidden;
 }
 .music-hero-overlay {
-  position:absolute; inset:0; background: radial-gradient(circle at 50% 20%, rgba(255,59,59,.18), transparent 70%);
+  position:absolute;
+  inset:0;
+  background: radial-gradient(circle at 50% 20%, rgba(255,59,59,.18), transparent 70%);
 }
 .music-hero-content { position:relative; z-index:2; max-width:800px; margin:0 auto; animation: fadeIn .9s ease; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 
 .music-title { margin:0 0 1rem; }
 .music-title .line {
-  display:block; font-weight:900; letter-spacing:.06em; line-height:1.05;
+  display:block;
+  font-weight:900;
+  letter-spacing:.06em;
+  line-height:1.05;
   background: linear-gradient(90deg, #ff3b3b, #b71c1c);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
   text-shadow: 0 0 10px rgba(183,28,28,.25);
   font-size: clamp(2.2rem, 6vw, 3.6rem);
 }
 .music-subtext {
-  font-size:1.1rem; color:#ffd6d6; line-height:1.7; max-width:720px; margin:0 auto;
+  font-size:1.1rem;
+  color:#ffd6d6;
+  line-height:1.7;
+  max-width:720px;
+  margin:0 auto;
 }
 
-.music-section { text-align:center; padding:3rem 1.5rem 5rem; }
+/* ===== SECTION HEADERS ===== */
+.music-section {
+  text-align:center;
+  padding:3rem 1.5rem 5rem;
+}
 .music-section h2 {
-  color:#ff3b3b; font-size:1.8rem; margin-bottom:1.2rem;
-  border-bottom:2px solid rgba(255,59,59,.35); display:inline-block; padding-bottom:.25rem;
+  color:#ff3b3b;
+  font-size:1.8rem;
+  margin-bottom:1.2rem;
+  border-bottom:2px solid rgba(255,59,59,.35);
+  display:inline-block;
+  padding-bottom:.25rem;
 }
 
+/* ===== GRID ===== */
 .music-grid {
-  display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap:1rem; justify-items:center;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:1rem;
+  justify-items:center;
 }
 
-/* Card links mimic Apple’s clean tiles */
+/* Uniform card height and bottom-aligned button */
 .music-card {
-  display:block; text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;   /* ✅ keeps button aligned at bottom */
+  text-decoration:none;
   background: rgba(255,255,255,.04);
   border: 1px solid rgba(255,59,59,.22);
-  border-radius: 14px; overflow:hidden; text-align:center;
-  width:100%; max-width:220px; transition: transform .2s ease, box-shadow .2s ease;
+  border-radius: 14px;
+  text-align:center;
+  width:100%;
+  max-width:220px;
+  height: 340px;                   /* ✅ consistent card height */
+  transition: transform .2s ease, box-shadow .2s ease;
+  overflow:hidden;
 }
 .music-card:hover { transform: translateY(-3px); box-shadow:0 8px 20px rgba(255,59,59,.25); }
 
 .music-cover {
-  width:100%; aspect-ratio:1/1; object-fit:cover;
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:0;
 }
 .music-card h3 {
-  color:#fff; font-size:1rem; margin:.7rem .6rem .3rem;
+  color:#fff;
+  font-size:1rem;
+  margin:.7rem .6rem .3rem;
+  min-height: 40px;                /* ✅ reserves equal space for titles */
 }
 
-/* Apple chip-style button */
+/* Apple chip-style button pinned bottom */
 .apple-chip {
-  display:inline-flex; align-items:center; gap:.4rem; margin:.6rem 0 1rem;
-  padding:.4rem .7rem; border-radius:999px;
-  background: #1c1f27; border:1px solid rgba(255,255,255,.12);
-  color:#fff; font-weight:700; font-size:.85rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.4rem;
+  margin: .6rem auto 1rem;
+  padding:.4rem .7rem;
+  border-radius:999px;
+  background: #1c1f27;
+  border:1px solid rgba(255,255,255,.12);
+  color:#fff;
+  font-weight:700;
+  font-size:.85rem;
 }
 .apple-icon { width:18px; height:18px; }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width:640px){
   .music-title .line { font-size:2rem; }
-  .music-grid { gap: .9rem; }
-  .music-card { max-width:200px; }
+  .music-grid { gap:.9rem; }
+  .music-card { max-width:200px; height:320px; }
+  .music-card h3 { min-height:35px; }
 }

@@ -7,7 +7,7 @@ import '../styles/home.css';
 import '../styles/membership.css';
 import '../styles/music.css'; // ✅ added new Music page styles
 import '../styles/member.css';
-
+import '../styles/memberhub.css';
 
 // ===== IMPORT COMPONENTS =====
 import Navbar from '../components/Navbar';

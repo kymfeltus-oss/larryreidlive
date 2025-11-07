@@ -1,0 +1,162 @@
+/* styles/membership.css */
+
+/* ===== HERO SECTION ===== */
+.membership-hero {
+  position: relative;
+  background: url("/assets/hero-bg.mp4") no-repeat center center / cover;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.membership-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 15, 24, 0.75);
+}
+
+.membership-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.membership-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  font-weight: 900;
+}
+
+.membership-hero p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* ===== PLANS SECTION ===== */
+.plans {
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+.plans h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.plans .subtext {
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.plan-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(79, 195, 247, 0.25);
+  border-radius: 1.2rem;
+  padding: 2rem 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(79, 195, 247, 0.2);
+}
+
+.plan-card h3 {
+  color: #4FC3F7;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.plan-card .price {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  color: #ccc;
+}
+
+.plan-card li {
+  margin-bottom: 0.5rem;
+}
+
+.plan-card.highlight {
+  border: 2px solid #4FC3F7;
+  background: rgba(79, 195, 247, 0.1);
+}
+
+.plan-card.elite {
+  border: 2px solid #03A9F4;
+}
+
+/* ===== CTA SECTION ===== */
+.cta {
+  text-align: center;
+  padding: 4rem 1.5rem 5rem;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+/* ===== BUTTONS (reuse global style) ===== */
+.btn {
+  padding: 0.9rem 1.4rem;
+  border-radius: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #4FC3F7, #0288D1);
+  color: #fff;
+  border: none;
+}
+
+.btn.outline {
+  border: 2px solid #4FC3F7;
+  color: #4FC3F7;
+  background: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .membership-hero h1 {
+    font-size: 1.8rem;
+  }
+  .plan-card {
+    padding: 1.5rem;
+  }
+}

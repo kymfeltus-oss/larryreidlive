@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
-import "../styles/home.css";
 
 export default function Home() {
   const taglines = [

@@ -3,6 +3,9 @@ import Head from "next/head";
 import Link from "next/link";
 
 export default function Member() {
+  // Mock user name
+  const userName = "John Doe";
+
   return (
     <>
       <Head>
@@ -10,78 +13,80 @@ export default function Member() {
       </Head>
 
       <section className="member-hub">
+        {/* Hero / Welcome */}
         <div className="hub-hero">
-          <h1>Welcome Back, Faith Partner</h1>
+          <h1>Welcome back, {userName} 👋</h1>
           <p>
-            Stay connected — new mentorship lessons, prophecies, and updates from Dr. Reid
-            are waiting for you.
+            Your hub for mentorship, messages, prophetic insight, and exclusive
+            community engagement with Dr. Larry Reid.
           </p>
         </div>
 
         {/* Quick Access Tiles */}
         <div className="hub-grid container">
           <Link href="#" className="hub-tile">
-            <img src="/assets/icons/vault.png" alt="Vault" />
+            <span className="emoji">📚</span>
             <h3>The Vault</h3>
-            <p>Access archived teachings, mentorship videos, and study materials.</p>
+            <p>Access archived teachings, mentorship sessions, and resources.</p>
           </Link>
 
           <Link href="#" className="hub-tile">
-            <img src="/assets/icons/messages.png" alt="Messages" />
+            <span className="emoji">💬</span>
             <h3>Messages from Dr. Reid</h3>
-            <p>Personal messages and prophetic insight directly from Dr. Reid.</p>
+            <p>Exclusive messages, prophetic insights, and daily inspiration.</p>
           </Link>
 
           <Link href="#" className="hub-tile">
-            <img src="/assets/icons/community.png" alt="Community" />
+            <span className="emoji">👥</span>
             <h3>Community Board</h3>
-            <p>Testimonies, prayers, and discussions with other members.</p>
+            <p>Connect with members — share testimonies, prayers, and wins.</p>
           </Link>
 
           <Link href="#" className="hub-tile">
-            <img src="/assets/icons/events.png" alt="Events" />
-            <h3>Upcoming Events</h3>
-            <p>Mentorship meetings, lives, and exclusive training sessions.</p>
+            <span className="emoji">📅</span>
+            <h3>Events & Mentorships</h3>
+            <p>View upcoming mentorship sessions and exclusive gatherings.</p>
           </Link>
         </div>
 
         {/* Featured Sections */}
         <div className="hub-sections container">
-          <div className="hub-card">
+          <div className="hub-card message">
             <h2>🕊️ Message from Dr. Reid</h2>
             <p>
-              “Every day is an opportunity to elevate your thinking and align your energy
-              with your divine assignment. Stay encouraged, stay empowered, and keep
-              evolving.”
+              “Every day is an opportunity to align with your divine purpose.
+              Live consciously, love intentionally, and lead boldly.”
             </p>
           </div>
 
-          <div className="hub-card">
-            <h2>📅 Upcoming Mentorship Session</h2>
-            <p><strong>Topic:</strong> Breaking Cycles of Limitation</p>
-            <p><strong>Date:</strong> Thursday, 7:00 PM EST</p>
+          <div className="hub-card session">
+            <h2>📖 Upcoming Mentorship</h2>
+            <p><strong>Topic:</strong> “Breaking Cycles of Limitation”</p>
+            <p><strong>Date:</strong> Thursday @ 7:00 PM EST</p>
             <Link href="#" className="btn primary">
               Join Live Session
             </Link>
           </div>
 
-          <div className="hub-card">
-            <h2>💬 Community Highlights</h2>
-            <p>132 new testimonies shared this week. Read inspiring stories from members worldwide.</p>
+          <div className="hub-card community">
+            <h2>🌍 Community Highlights</h2>
+            <p>
+              147 new testimonies this week! Members worldwide are sharing breakthroughs and blessings.
+            </p>
             <Link href="#" className="btn outline">
               Visit Community
             </Link>
           </div>
         </div>
 
-        {/* Call to Action */}
+        {/* Action CTA */}
         <div className="hub-cta container">
-          <h2>Ready to Go Deeper?</h2>
+          <h2>Ready to Go Deeper? 🔥</h2>
           <p>
-            Explore Prophecies, Business Coaching, or Personal Mentorship Services with Dr. Reid.
+            Book personal coaching, prophetic consultations, or business mentorship with Dr. Larry Reid today.
           </p>
           <Link href="/services" className="btn primary">
-            View Services
+            Explore Services
           </Link>
         </div>
       </section>

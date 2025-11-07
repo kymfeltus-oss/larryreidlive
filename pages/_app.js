@@ -6,6 +6,8 @@ import '../styles/globals.css';
 import '../styles/home.css';
 import '../styles/membership.css';
 import '../styles/music.css'; // ✅ added new Music page styles
+import '../styles/member.css';
+
 
 // ===== IMPORT COMPONENTS =====
 import Navbar from '../components/Navbar';

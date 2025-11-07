@@ -1,0 +1,118 @@
+/* styles/music.css */
+
+/* ===== HERO SECTION ===== */
+.music-hero {
+  text-align: center;
+  padding: 5rem 1.5rem 3rem;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(26, 46, 74, 0.4) 0%,
+    rgba(10, 15, 24, 0.95) 90%
+  );
+  color: #fff;
+}
+
+.music-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: #4FC3F7;
+}
+
+.music-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+/* ===== GRID ===== */
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.music-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(79, 195, 247, 0.25);
+  border-radius: 1rem;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(79, 195, 247, 0.3);
+}
+
+.music-cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.music-card h3 {
+  margin: 1rem 0 0.5rem;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+/* ===== BUTTONS ===== */
+.music-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #4FC3F7, #0288D1);
+  color: #fff;
+  border: none;
+}
+
+.btn.outline {
+  border: 2px solid #4FC3F7;
+  color: #4FC3F7;
+  background: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(79, 195, 247, 0.3);
+  color: #fff;
+  background: linear-gradient(135deg, #03A9F4, #0288D1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .music-hero {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .music-hero p {
+    font-size: 0.95rem;
+  }
+
+  .music-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

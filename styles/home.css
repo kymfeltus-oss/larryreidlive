@@ -1,4 +1,21 @@
-/* styles/home.css */
+/* ===============================
+   HOME PAGE — Dr. Larry Reid Live
+   =============================== */
+
+/* ===== TOP BANNER ===== */
+.top-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
 
 /* ===== HERO SECTION ===== */
 .hero-section {
@@ -41,7 +58,7 @@
 
 /* ===== HERO LOGO ===== */
 .hero-logo {
-  width: 160px; /* smaller size */
+  width: 160px;
   height: auto;
   margin-bottom: 1rem;
   animation: fadeIn 1.2s ease;
@@ -58,6 +75,7 @@
   }
 }
 
+/* ===== TAGLINE / TYPEWRITER ===== */
 .hero-title {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 900;
@@ -69,7 +87,7 @@
 .typewriter {
   font-size: 1.5rem;
   height: 2rem;
-  color: #4FC3F7; /* modern blue accent */
+  color: #ff3b3b; /* 🔴 red accent */
   margin-bottom: 2rem;
   animation: fade 2.5s infinite;
 }
@@ -107,25 +125,25 @@
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #4FC3F7, #0288D1);
+  background: linear-gradient(135deg, #ff3b3b, #b71c1c);
   color: #fff;
   border: none;
 }
 
 .btn.outline {
-  border: 2px solid #4FC3F7;
-  color: #4FC3F7;
+  border: 2px solid #ff3b3b;
+  color: #ff3b3b;
   background: transparent;
 }
 
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(135deg, #03A9F4, #0288D1);
+  background: linear-gradient(135deg, #ff4d4d, #b71c1c);
   color: #fff;
 }
 
-/* ===== SECTION CONTENT ===== */
+/* ===== SECTION STYLING ===== */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -145,10 +163,10 @@
   line-height: 1.6;
 }
 
-/* ===== RESPONSIVE (MOBILE) ===== */
+/* ===== MOBILE STYLING ===== */
 @media (max-width: 640px) {
   .hero-logo {
-    width: 120px; /* smaller on mobile */
+    width: 120px;
   }
 
   .hero-title {

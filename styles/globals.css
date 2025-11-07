@@ -113,4 +113,29 @@ a{color:var(--gold);text-decoration:none;}
   .hamburger {
     display: flex;
   }
+} /* Transparent Navbar Overlay */
+.navbar.transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  z-index: 100;
+  padding: 0.5rem 1rem;
 }
+
+.nav-inner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Keep hamburger white and visible over video */
+.hamburger span {
+  background: #fff;
+}
+

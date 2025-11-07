@@ -97,7 +97,7 @@
   100% { opacity: 0; }
 }
 
-/* ===== BUTTONS (Centered Blue) ===== */
+/* ===== CTA BUTTONS (Equal Size + Centered) ===== */
 .cta-row {
   display: flex;
   justify-content: center;
@@ -105,24 +105,27 @@
   gap: 1rem;
   flex-wrap: wrap;
   width: 100%;
+  max-width: 400px;            /* 🔒 sets a fixed width container */
+  margin: 0 auto;
 }
 
 .btn {
+  flex: 1 1 45%;               /* ✅ makes both buttons take equal width */
+  min-width: 160px;            /* ensures small screens don’t shrink them unevenly */
   padding: 0.9rem 1.4rem;
   border-radius: 1.2rem;
   font-weight: 800;
   text-transform: uppercase;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
   text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
+/* Blue Gradient Buttons */
 .btn.primary {
   background: linear-gradient(135deg, #4FC3F7, #0288D1);
   color: #fff;
   border: none;
-  display: inline-block;
-  margin: 0 auto;
 }
 
 .btn.outline {
@@ -131,6 +134,7 @@
   background: transparent;
 }
 
+/* Hover effect */
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
@@ -158,12 +162,13 @@
   line-height: 1.6;
 }
 
-/* ===== FIX: "View Membership" + CTA ===== */
+/* Fix View Membership and CTA Buttons */
 .membership-teaser .btn.primary,
 .cta .btn.primary {
   display: block;
   margin: 1.5rem auto 0 auto;
   text-align: center;
+  width: 220px;                /* ✅ locked width for consistent alignment */
 }
 
 /* ===== MOBILE ===== */
@@ -172,6 +177,13 @@
   .hero-section { height: calc(100vh - 90px); }
   .hero-logo { width: 120px; }
   .typewriter { font-size: 1.2rem; }
-  .cta-row { flex-direction: column; gap: 0.8rem; }
-  .btn { width: 90%; margin: 0 auto; }
+  .cta-row {
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 280px;
+  }
+  .btn {
+    width: 100%;
+    margin: 0 auto;
+  }
 }

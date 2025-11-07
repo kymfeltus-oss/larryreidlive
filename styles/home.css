@@ -6,7 +6,7 @@
 .top-banner {
   position: relative;
   width: 100%;
-  height: 150px;              /* ✅ limit banner height */
+  height: 150px; /* Keep as-is */
   overflow: hidden;
   z-index: 5;
 }
@@ -14,19 +14,21 @@
 .banner-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;          /* keeps proportions, crops excess */
+  object-fit: cover;
   display: block;
 }
 
 /* ===== HERO SECTION ===== */
 .hero-section {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 150px); /* make sure hero fills screen under banner */
   width: 100%;
   overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center;     /* ✅ vertical centering */
+  justify-content: center; /* ✅ horizontal centering */
+  text-align: center;
+  padding-top: 0;
 }
 
 .hero-video {
@@ -51,10 +53,10 @@
 
 .hero-content {
   position: relative;
-  text-align: center;
   z-index: 2;
   color: #fff;
   padding: 0 1rem;
+  max-width: 700px;
 }
 
 /* ===== HERO LOGO ===== */
@@ -66,29 +68,15 @@
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== TAGLINE ===== */
-.hero-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  margin-bottom: 1rem;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-}
-
 .typewriter {
   font-size: 1.5rem;
   height: 2rem;
-  color: #ff3b3b;           /* 🔴 red accent */
+  color: #ff3b3b; /* red accent */
   margin-bottom: 2rem;
   animation: fade 2.5s infinite;
 }
@@ -158,24 +146,10 @@
 
 /* ===== MOBILE ===== */
 @media (max-width: 640px) {
-  .top-banner { height: 90px; }  /* smaller banner on phones */
-
+  .top-banner { height: 90px; }
+  .hero-section { height: calc(100vh - 90px); }
   .hero-logo { width: 120px; }
-  .hero-title { font-size: 2.2rem; }
   .typewriter { font-size: 1.2rem; }
-
-  .hero-content {
-    text-align: center;
-    padding: 0 1rem;
-  }
-
-  .cta-row {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .btn {
-    width: 90%;
-    margin: 0 auto;
-  }
+  .cta-row { flex-direction: column; gap: 0.8rem; }
+  .btn { width: 90%; margin: 0 auto; }
 }

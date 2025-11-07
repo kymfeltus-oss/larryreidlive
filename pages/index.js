@@ -13,92 +13,60 @@ export default function Home() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % taglines.length);
-    }, 2500);
+    const timer = setInterval(() => setIndex((i) => (i + 1) % taglines.length), 2500);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <>
-      <Head>
-        <title>Dr. Larry Reid — The Experience</title>
-      </Head>
+      <Head><title>Dr. Larry Reid — The Experience</title></Head>
 
-      {/* ===== TOP BANNER ===== */}
+      {/* Top banner (kept small by CSS) */}
       <div className="top-banner">
-        <img
-          src="/assets/channels4_banner.jpg"
-          alt="Larry Reid Live Banner"
-          className="banner-image"
-        />
+        <img src="/assets/channels4_banner.jpg" alt="Larry Reid Live Banner" className="banner-image" />
       </div>
 
-      {/* ===== HERO SECTION ===== */}
+      {/* Hero */}
       <section className="hero-section">
-        <video
-          className="hero-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-          src="/assets/hero-bg.mp4"
-        />
+        <video className="hero-video" autoPlay loop muted playsInline src="/assets/hero-bg.mp4" />
         <div className="overlay" />
-
         <div className="hero-content">
-          <img
-            src="/assets/logo.png"
-            alt="Larry Reid Live Logo"
-            className="hero-logo"
-          />
-
+          <img src="/assets/logo.png" alt="Larry Reid Live Logo" className="hero-logo" />
           <h2 className="typewriter">{taglines[index]}</h2>
-
           <div className="cta-row">
-            <Link href="/portal" className="btn primary">
+            <a
+              href="https://www.youtube.com/@LarryReidLive/streams"
+              target="_blank" rel="noopener noreferrer"
+              className="btn primary"
+            >
               Watch Live
-            </Link>
-            <Link href="/membership" className="btn outline">
-              Join the Movement
-            </Link>
+            </a>
+            <Link href="/membership" className="btn outline">Join the Movement</Link>
           </div>
         </div>
       </section>
 
-      {/* ===== ABOUT / INTRO ===== */}
+      {/* About */}
       <section className="about container">
         <h3>Welcome to The Movement</h3>
         <p>
-          <strong>Dr. Larry Reid</strong> is a multimedia personality,
-          spiritual leader, and founder of the MBN Network. He has built a
-          movement that fuses entertainment, spirituality, and mentorship —
-          bringing laughter, truth, and transformation to millions worldwide.
+          <strong>Dr. Larry Reid</strong> is a multimedia personality, spiritual leader, and founder of the MBN Network.
+          A movement fusing entertainment, spirituality, and mentorship—bringing laughter, truth, and transformation to millions.
         </p>
       </section>
 
-      {/* ===== MEMBERSHIP TEASER ===== */}
+      {/* Membership Teaser */}
       <section className="membership-teaser container">
         <h3>Membership Tiers</h3>
-        <p>
-          Experience deeper connection and growth through the Christ
-          Consciousness Mentorship program led by Dr. Larry Reid.
-        </p>
-        <Link href="/membership" className="btn primary">
-          View Memberships
-        </Link>
+        <p>Experience deeper connection and growth through the Christ Consciousness Mentorship program led by Dr. Larry Reid.</p>
+        <Link href="/membership" className="btn primary">View Memberships</Link>
       </section>
 
-      {/* ===== MUSIC TEASER ===== */}
+      {/* Music Teaser */}
       <section className="music-teaser container">
         <h3>Music by Dr. Larry Reid</h3>
-        <p>
-          Stream and support Dr. Larry Reid’s latest musical releases across all
-          major platforms.
-        </p>
-        <Link href="/music" className="btn outline">
-          Listen Now
-        </Link>
+        <p>Stream and support the latest musical releases across all major platforms.</p>
+        <Link href="/music" className="btn outline">Listen Now</Link>
       </section>
     </>
   );

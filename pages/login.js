@@ -1,43 +1,35 @@
-// pages/login.js
+// pages/login.js (Mock Version - No Firebase)
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
-import { auth } from "../lib/firebase";
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-} from "firebase/auth";
 
 export default function Login() {
   const router = useRouter();
-  const [mode, setMode] = useState("login");
+  const [mode, setMode] = useState("login"); // login | register
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  async function handleSubmit(e) {
+  function handleMockAuth(e) {
     e.preventDefault();
-    setError("");
-
-    try {
-      if (mode === "login") {
-        await signInWithEmailAndPassword(auth, email, password);
-      } else {
-        await createUserWithEmailAndPassword(auth, email, password);
-      }
-      router.push("/member");
-    } catch (err) {
-      setError(err.message);
+    if (!email || !password) {
+      setError("Please enter both email and password.");
+      return;
     }
+    // ✅ simulate login delay
+    setError("");
+    setTimeout(() => {
+      console.log("Mock login:", email);
+      router.push("/member"); // redirect immediately to Member Hub
+    }, 500);
   }
 
   return (
     <>
       <Head>
         <title>
-          {mode === "login" ? "Member Login" : "Create Account"} — Dr. Larry Reid
-          Live
+          {mode === "login" ? "Member Login" : "Create Account"} — Dr. Larry Reid Live
         </title>
       </Head>
 
@@ -45,7 +37,7 @@ export default function Login() {
         <div className="login-card">
           <h1>{mode === "login" ? "Member Login" : "Create Account"}</h1>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleMockAuth}>
             <input
               type="email"
               placeholder="Email Address"

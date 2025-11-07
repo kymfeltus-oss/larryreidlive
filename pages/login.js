@@ -1,37 +1,85 @@
-import { auth } from '../lib/firebase';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
-import { useState } from 'react';
-import Link from 'next/link';
+// pages/login.js
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { auth } from "../lib/firebase";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
+import Link from "next/link";
+import Head from "next/head";
 
-export default function Login(){
-  const [email,setEmail] = useState('');
-  const [password,setPassword] = useState('');
-  const [mode,setMode] = useState('login'); // or 'signup'
+export default function Login() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [mode, setMode] = useState("login"); // toggle between login/signup
+  const [error, setError] = useState("");
 
-  async function handleSubmit(e){
+  const handleAuth = async (e) => {
     e.preventDefault();
-    try{
-      if(mode==='login') await signInWithEmailAndPassword(auth, email, password);
-      else await createUserWithEmailAndPassword(auth, email, password);
-      window.location.href = '/portal';
-    }catch(e){
-      alert(e.message);
+    try {
+      if (mode === "login") {
+        await signInWithEmailAndPassword(auth, email, password);
+      } else {
+        await createUserWithEmailAndPassword(auth, email, password);
+      }
+      router.push("/member"); // redirect to member hub
+    } catch (err) {
+      setError(err.message);
     }
-  }
+  };
 
   return (
-    <div className="container" style={{maxWidth:480}}>
-      <h2>{mode==='login'?'Login':'Create Account'}</h2>
-      <form onSubmit={handleSubmit} className="card" style={{display:'grid',gap:12}}>
-        <input placeholder="Email" value={email} onChange={e=>setEmail(e.target.value)} required/>
-        <input placeholder="Password" type="password" value={password} onChange={e=>setPassword(e.target.value)} required/>
-        <button className="btn primary" type="submit">{mode==='login'?'Login':'Sign Up'}</button>
-        <button type="button" className="btn" onClick={()=>setMode(mode==='login'?'signup':'login')}>
-          {mode==='login'?'Need an account? Sign up':'Have an account? Log in'}
-        </button>
-        <Link className="btn outline" href="/">Back</Link>
-      </form>
-      <div style={{opacity:.7,marginTop:8,fontSize:12}}>By continuing you agree to our Terms & Privacy.</div>
-    </div>
+    <>
+      <Head>
+        <title>{mode === "login" ? "Login" : "Register"} — Dr. Larry Reid Live</title>
+      </Head>
+
+      <section className="login-page">
+        <div className="login-card">
+          <h1>{mode === "login" ? "Member Login" : "Create Account"}</h1>
+
+          <form onSubmit={handleAuth}>
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            {error && <p className="error">{error}</p>}
+            <button type="submit" className="btn primary">
+              {mode === "login" ? "Login" : "Register"}
+            </button>
+          </form>
+
+          <p className="switch">
+            {mode === "login" ? (
+              <>
+                Don’t have an account?{" "}
+                <span onClick={() => setMode("register")}>Register here</span>.
+              </>
+            ) : (
+              <>
+                Already a member?{" "}
+                <span onClick={() => setMode("login")}>Login here</span>.
+              </>
+            )}
+          </p>
+
+          <Link href="/" className="btn outline small">
+            Back to Home
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }

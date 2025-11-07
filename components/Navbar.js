@@ -1,7 +1,6 @@
 // components/Navbar.js
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,22 +8,21 @@ export default function Navbar() {
   return (
     <header className="navbar transparent">
       <div className="nav-inner">
-        {/* LOGO REMOVED FROM TOP — just the menu icon */}
+        {/* NAV LINKS OVERLAY (centered panel when open) */}
         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <Link href="/">Home</Link>
-          <Link href="/membership">Membership</Link>
-          <Link href="/portal">Portal</Link>
-          <Link href="/music">Music</Link>
-          <Link href="/login" className="btn small">
-            Login
-          </Link>
+          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link href="/membership" onClick={() => setMenuOpen(false)}>Membership</Link>
+          <Link href="/music" onClick={() => setMenuOpen(false)}>Music</Link>
+          <Link href="/live" onClick={() => setMenuOpen(false)}>Watch Live</Link>
+          <Link href="/login" className="btn small" onClick={() => setMenuOpen(false)}>Login</Link>
         </nav>
 
-        {/* HAMBURGER ICON */}
+        {/* HAMBURGER (top-right) */}
         <button
           className={`hamburger ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
         >
           <span />
           <span />

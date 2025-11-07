@@ -1,0 +1,155 @@
+/* ===============================
+   LRL MEMBERSHIP HUB (Mock)
+   =============================== */
+
+.member-hub {
+  background: #0a0f18;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ===== HERO ===== */
+.hub-hero {
+  text-align: center;
+  padding: 4rem 1rem 2rem;
+  background: radial-gradient(circle at center, rgba(255,59,59,0.15), rgba(10,15,24,0.95) 90%);
+}
+
+.hub-hero h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  color: #ff3b3b;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.hub-hero p {
+  color: #ccc;
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== QUICK ACCESS GRID ===== */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem auto;
+  max-width: 1100px;
+}
+
+.hub-tile {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.2rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hub-tile img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+}
+
+.hub-tile h3 {
+  color: #4FC3F7;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.hub-tile p {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.hub-tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(79, 195, 247, 0.3);
+}
+
+/* ===== FEATURED SECTIONS ===== */
+.hub-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.hub-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 59, 59, 0.25);
+}
+
+.hub-card h2 {
+  color: #ff3b3b;
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+}
+
+.hub-card p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* ===== CALL TO ACTION ===== */
+.hub-cta {
+  text-align: center;
+  padding: 4rem 1rem 5rem;
+}
+
+.hub-cta h2 {
+  color: #ff3b3b;
+  font-weight: 900;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hub-cta p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  padding: 0.9rem 1.4rem;
+  border-radius: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.3s ease;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #4FC3F7, #0288D1);
+  color: #fff;
+}
+
+.btn.outline {
+  border: 2px solid #4FC3F7;
+  color: #4FC3F7;
+  background: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
+}

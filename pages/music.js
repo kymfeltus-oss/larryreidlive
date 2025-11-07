@@ -92,11 +92,13 @@ export default function Music() {
       <section className="music-hero">
         <div className="music-hero-overlay"></div>
         <div className="music-hero-content">
-          <h1 className="music-title">The Sound of Dr. Larry Reid</h1>
+          <h1 className="music-title">
+            <span className="line">The Sound</span>
+            <span className="line">Of</span>
+            <span className="line">Dr. Larry Reid</span>
+          </h1>
           <p className="music-subtext">
-            From soul-stirring messages to chart-topping gospel singles,
-            experience the musical journey of Dr. Larry Reid — available now on
-            Apple Music and Spotify.
+            From soul-stirring messages to chart-topping gospel singles, experience the musical journey of Dr. Larry Reid, available now on Apple Music and Spotify.
           </p>
         </div>
       </section>
@@ -105,35 +107,27 @@ export default function Music() {
       <section className="music-section container">
         <h2>Albums</h2>
         <div className="music-grid">
-          {albums.map((song) => (
-            <div className="music-card" key={song.title}>
-              <img src={song.cover} alt={song.title} className="music-cover" />
-              <h3>{song.title}</h3>
+          {albums.map((item) => (
+            <div className="music-card" key={item.title}>
+              <img src={item.cover} alt={item.title} className="music-cover" />
+              <h3>{item.title}</h3>
               <div className="music-buttons">
                 <a
-                  href={song.apple}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn primary"
-                >
-                  <img
-                    src="/assets/apple-music-logo.png"
-                    alt="Apple Music"
-                    className="icon"
-                  />
+                  href={item.apple}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn primary"
+                  >
+                  <img src="/assets/apple-music-logo.png" alt="Apple Music" className="icon" />
                   Apple
                 </a>
                 <a
-                  href={song.spotify}
+                  href={item.spotify}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn spotify"
                 >
-                  <img
-                    src="/assets/spotify-logo.png"
-                    alt="Spotify"
-                    className="icon"
-                  />
+                  <img src="/assets/spotify-logo.png" alt="Spotify" className="icon" />
                   Spotify
                 </a>
               </div>
@@ -146,35 +140,27 @@ export default function Music() {
       <section className="music-section container">
         <h2>Singles</h2>
         <div className="music-grid">
-          {singles.map((song) => (
-            <div className="music-card" key={song.title}>
-              <img src={song.cover} alt={song.title} className="music-cover" />
-              <h3>{song.title}</h3>
+          {singles.map((item) => (
+            <div className="music-card" key={item.title}>
+              <img src={item.cover} alt={item.title} className="music-cover" />
+              <h3>{item.title}</h3>
               <div className="music-buttons">
                 <a
-                  href={song.apple}
+                  href={item.apple}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn primary"
                 >
-                  <img
-                    src="/assets/apple-music-logo.png"
-                    alt="Apple Music"
-                    className="icon"
-                  />
+                  <img src="/assets/apple-music-logo.png" alt="Apple Music" className="icon" />
                   Apple
                 </a>
                 <a
-                  href={song.spotify}
+                  href={item.spotify}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn spotify"
                 >
-                  <img
-                    src="/assets/spotify-logo.png"
-                    alt="Spotify"
-                    className="icon"
-                  />
+                  <img src="/assets/spotify-logo.png" alt="Spotify" className="icon" />
                   Spotify
                 </a>
               </div>

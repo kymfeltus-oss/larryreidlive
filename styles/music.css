@@ -116,12 +116,14 @@
   transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
+/* Apple Music button */
 .btn.primary {
   background: linear-gradient(135deg, #4FC3F7, #0288D1);
   color: #fff;
   border: none;
 }
 
+/* Spotify button */
 .btn.spotify {
   background: #1DB954;
   color: #fff;
@@ -137,9 +139,19 @@
   background: #1ed760;
 }
 
+/* ===== ICONS ===== */
 .icon {
   width: 18px;
   height: 18px;
+}
+
+/* ✅ Keep real Apple Music logo colors */
+.btn.primary .icon {
+  filter: none;
+}
+
+/* ✅ Keep Spotify logo white */
+.btn.spotify .icon {
   filter: brightness(0) invert(1);
 }
 

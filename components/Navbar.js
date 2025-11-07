@@ -8,16 +8,7 @@ export default function Navbar() {
   return (
     <header className="navbar transparent">
       <div className="nav-inner">
-        {/* NAV LINKS OVERLAY (centered panel when open) */}
-        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/membership" onClick={() => setMenuOpen(false)}>Membership</Link>
-          <Link href="/music" onClick={() => setMenuOpen(false)}>Music</Link>
-          <Link href="/live" onClick={() => setMenuOpen(false)}>Watch Live</Link>
-          <Link href="/login" className="btn small" onClick={() => setMenuOpen(false)}>Login</Link>
-        </nav>
-
-        {/* HAMBURGER (top-right) */}
+        {/* Right-aligned hamburger */}
         <button
           className={`hamburger ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -28,6 +19,22 @@ export default function Navbar() {
           <span />
           <span />
         </button>
+
+        {/* Slide-down menu (mobile-first) */}
+        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link href="/membership" onClick={() => setMenuOpen(false)}>Membership</Link>
+          <Link href="/music" onClick={() => setMenuOpen(false)}>Music</Link>
+          <a
+            href="https://www.youtube.com/@LarryReidLive/streams"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
+          >
+            Watch Live
+          </a>
+          <Link href="/login" className="btn small" onClick={() => setMenuOpen(false)}>Login</Link>
+        </nav>
       </div>
     </header>
   );

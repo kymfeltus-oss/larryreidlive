@@ -11,7 +11,7 @@ export default function Navbar(){
         </div>
         <div className="links">
           <Link href="/">Home</Link>
-          <Link href="/pricing">Pricing</Link>
+          <Link href="/membership">Membership</Link>
           <Link href="/portal">Portal</Link>
           <Link href="/login" className="btn outline">Login</Link>
         </div>

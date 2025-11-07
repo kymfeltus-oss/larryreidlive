@@ -1,25 +1,32 @@
 /* ===============================
-   LRL MEMBERSHIP HUB (Mock)
+   LRL MEMBERSHIP HUB — Interactive Mock
    =============================== */
 
 .member-hub {
   background: #0a0f18;
   color: #fff;
   min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Open Sans", Arial, sans-serif;
 }
 
 /* ===== HERO ===== */
 .hub-hero {
   text-align: center;
-  padding: 4rem 1rem 2rem;
-  background: radial-gradient(circle at center, rgba(255,59,59,0.15), rgba(10,15,24,0.95) 90%);
+  padding: 4rem 1rem 2.5rem;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 59, 59, 0.15),
+    rgba(10, 15, 24, 0.95) 90%
+  );
+  animation: fadeInUp 1s ease both;
 }
 
 .hub-hero h1 {
-  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
   color: #ff3b3b;
   font-weight: 900;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .hub-hero p {
@@ -30,50 +37,67 @@
   line-height: 1.6;
 }
 
-/* ===== QUICK ACCESS GRID ===== */
+/* ===== GRID (Quick Access Tiles) ===== */
 .hub-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
   margin: 3rem auto;
   max-width: 1100px;
+  animation: fadeInUp 1.2s ease both;
 }
 
 .hub-tile {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.2rem;
-  padding: 2rem 1rem;
+  padding: 2rem 1.2rem;
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.hub-tile img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 1rem;
+.hub-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(2, 136, 209, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hub-tile:hover::after {
+  opacity: 1;
+}
+
+.hub-tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(79, 195, 247, 0.3);
+}
+
+.hub-tile .emoji {
+  font-size: 2rem;
+  margin-bottom: 0.7rem;
 }
 
 .hub-tile h3 {
   color: #4FC3F7;
   font-weight: 800;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .hub-tile p {
   color: #ccc;
   font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.hub-tile:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 22px rgba(79, 195, 247, 0.3);
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 220px;
 }
 
 /* ===== FEATURED SECTIONS ===== */
@@ -82,6 +106,9 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hub-card {
@@ -90,12 +117,12 @@
   border-radius: 1rem;
   padding: 2rem 1.5rem;
   text-align: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hub-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(255, 59, 59, 0.25);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 59, 59, 0.25);
 }
 
 .hub-card h2 {
@@ -111,30 +138,13 @@
   margin-bottom: 1rem;
 }
 
-/* ===== CALL TO ACTION ===== */
-.hub-cta {
-  text-align: center;
-  padding: 4rem 1rem 5rem;
-}
-
-.hub-cta h2 {
-  color: #ff3b3b;
-  font-weight: 900;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
-
-.hub-cta p {
-  color: #ccc;
-  margin-bottom: 1.5rem;
-}
-
 .btn {
-  padding: 0.9rem 1.4rem;
-  border-radius: 1.2rem;
+  padding: 0.85rem 1.2rem;
+  border-radius: 1rem;
   font-weight: 800;
   text-transform: uppercase;
   text-decoration: none;
+  display: inline-block;
   transition: transform 0.15s ease, box-shadow 0.3s ease;
 }
 
@@ -152,4 +162,46 @@
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
+}
+
+/* ===== CTA SECTION ===== */
+.hub-cta {
+  text-align: center;
+  padding: 4rem 1rem 5rem;
+  animation: fadeInUp 1.5s ease both;
+}
+
+.hub-cta h2 {
+  color: #ff3b3b;
+  font-weight: 900;
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.hub-cta p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .hub-hero { padding: 3rem 1rem; }
+  .hub-tile { padding: 1.5rem; }
+  .hub-card { padding: 1.5rem; }
 }

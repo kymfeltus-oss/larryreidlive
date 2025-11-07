@@ -1,14 +1,19 @@
 // pages/_app.js
 // Global App Component — applies shared styles, layout, and Navbar across all pages
 
+// ===== IMPORT ALL GLOBAL STYLES =====
 import '../styles/globals.css';
-import '../styles/home.css'; // ✅ Moved here so Next.js accepts the global import
+import '../styles/home.css';
+import '../styles/membership.css';
+import '../styles/music.css'; // ✅ added new Music page styles
+
+// ===== IMPORT COMPONENTS =====
 import Navbar from '../components/Navbar';
 import { useEffect } from 'react';
 import { auth } from '../lib/firebase';
 
 export default function MyApp({ Component, pageProps }) {
-  // Optional Firebase user-state listener (helpful for debugging or user display)
+  // Firebase user-state listener (for debugging / user sessions)
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -22,15 +27,15 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {/* Global Navigation */}
+      {/* ===== GLOBAL NAVIGATION ===== */}
       <Navbar />
 
-      {/* Main Page Content */}
+      {/* ===== PAGE CONTENT ===== */}
       <main className="app-main">
         <Component {...pageProps} />
       </main>
 
-      {/* Global Footer */}
+      {/* ===== GLOBAL FOOTER ===== */}
       <footer
         className="footer container"
         style={{
@@ -41,7 +46,7 @@ export default function MyApp({ Component, pageProps }) {
           fontSize: '0.9rem',
         }}
       >
-        © {new Date().getFullYear()} <strong>Larry Reid Live LLC</strong> — Educate. Entertain. Enlighten.
+        © {new Date().getFullYear()} <strong>Dr. Larry Reid Live LLC</strong> — Educate. Entertain. Enlighten.
       </footer>
     </>
   );

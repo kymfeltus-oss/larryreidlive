@@ -1,0 +1,79 @@
+/* ===== MOCK PATREON PAGE ===== */
+.patreon-page {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: #0a0f18;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.patreon-page h1 {
+  color: #ff3b3b;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.patreon-page p {
+  color: #ccc;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.patreon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.patreon-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  overflow: hidden;
+  text-align: left;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.patreon-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 59, 59, 0.3);
+}
+
+.patreon-img {
+  width: 100%;
+  border-radius: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.patreon-card h3 {
+  color: #ff3b3b;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.patreon-content {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #4FC3F7, #0288D1);
+  color: #fff;
+  text-align: center;
+  border-radius: 0.8rem;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.7rem 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(79, 195, 247, 0.3);
+}

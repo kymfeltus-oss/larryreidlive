@@ -1,24 +1,29 @@
 // pages/member.js
 import { useEffect, useState } from "react";
-import { auth } from "../lib/firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { auth } from "../lib/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 export default function Member() {
+  const router = useRouter();
+  const isGuest = router.query.guest === "1";
   const [user, setUser] = useState(null);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    const unsub = onAuthStateChanged(auth, (u) => {
+      setUser(u);
+      setReady(true);
     });
-    return () => unsubscribe();
+    return () => unsub();
   }, []);
 
-  const handleLogout = async () => {
-    await signOut(auth);
-    window.location.href = "/";
-  };
+  async function handleLogout() {
+    await signOut(auth).catch(()=>{});
+    router.replace("/");
+  }
 
   return (
     <>
@@ -28,29 +33,31 @@ export default function Member() {
 
       <section className="member-page">
         <div className="member-card">
-          {user ? (
+          {(!ready && !isGuest) ? (
+            <p>Loading...</p>
+          ) : (
             <>
-              <h1>Welcome, {user.email}</h1>
-              <p>
-                You are now logged into the Dr. Larry Reid Live Member Hub.
-                Explore mentorship content, exclusive videos, and more.
+              <h1>{isGuest ? "Guest Preview" : `Welcome, ${user?.displayName || user?.email || "Member"}`}</h1>
+              <p className="muted">
+                {isGuest
+                  ? "You are browsing as a guest. Some content may be limited."
+                  : "You are logged into the Dr. Larry Reid Live Member Hub."}
               </p>
 
               <div className="member-links">
-                <Link href="/portal" className="btn primary">
-                  Go to Vault
-                </Link>
-                <Link href="/membership" className="btn outline">
-                  Manage Subscription
-                </Link>
+                <Link href="/portal" className="btn primary">Go to Vault</Link>
+                <Link href="/membership" className="btn outline">Manage Membership</Link>
+                <Link href="/music" className="btn outline">Music</Link>
               </div>
 
-              <button onClick={handleLogout} className="btn logout">
-                Logout
-              </button>
+              <div className="member-foot">
+                {isGuest ? (
+                  <Link href="/login" className="btn small">Create Account / Login</Link>
+                ) : (
+                  <button onClick={handleLogout} className="btn logout">Logout</button>
+                )}
+              </div>
             </>
-          ) : (
-            <p>Loading user data...</p>
           )}
         </div>
       </section>

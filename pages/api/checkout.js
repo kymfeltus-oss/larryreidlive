@@ -1,5 +1,6 @@
-// pages/checkout.js
-import { stripe } from '../lib/stripe';  // ✅ corrected path
+// pages/api/checkout.js
+// Stripe checkout API route
+import { stripe } from '../../lib/stripe';
 
 export default async function handler(req, res) {
   try {
@@ -18,20 +19,14 @@ export default async function handler(req, res) {
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
       payment_method_types: ['card'],
-      line_items: [
-        {
-          price: priceMap[plan],
-          quantity: 1,
-        },
-      ],
+      line_items: [{ price: priceMap[plan], quantity: 1 }],
       success_url: `${req.headers.origin}/portal?sub=success`,
       cancel_url: `${req.headers.origin}/pricing?canceled=1`,
     });
 
-    res.writeHead(302, { Location: session.url });
-    res.end();
-  } catch (e) {
-    console.error('Checkout error:', e.message);
-    res.status(500).json({ error: e.message });
+    res.status(200).json({ url: session.url });
+  } catch (error) {
+    console.error('Checkout error:', error.message);
+    res.status(500).json({ error: error.message });
   }
 }

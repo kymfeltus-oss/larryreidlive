@@ -1,4 +1,6 @@
 /* styles/home.css */
+
+/* ===== HERO SECTION ===== */
 .hero-section {
   position: relative;
   height: 100vh;
@@ -54,12 +56,21 @@
 }
 
 @keyframes fade {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
+/* ===== CALL TO ACTION BUTTONS ===== */
 .cta-row {
   display: flex;
   justify-content: center;
@@ -92,7 +103,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Section styling */
+/* ===== SECTION STYLING ===== */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -112,23 +123,28 @@
   line-height: 1.6;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE (MOBILE) FIXES ===== */
 @media (max-width: 640px) {
-  .hero-title { font-size: 2.2rem; }
-  .typewriter { font-size: 1.2rem; }
-} /* Responsive mobile fixes */
-@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .typewriter {
+    font-size: 1.2rem;
+  }
+
   .hero-content {
     text-align: center;
     padding: 0 1rem;
   }
+
   .cta-row {
     flex-direction: column;
     gap: 0.8rem;
   }
+
   .btn {
     width: 90%;
     margin: 0 auto;
   }
 }
-

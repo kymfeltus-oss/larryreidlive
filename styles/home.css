@@ -56,6 +56,10 @@
   color: #fff;
   padding: 0 1rem;
   max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ===== HERO LOGO ===== */
@@ -81,7 +85,7 @@
 .typewriter {
   font-size: 1.5rem;
   height: 2rem;
-  color: #ff3b3b; /* red accent stays */
+  color: #ff3b3b;
   margin-bottom: 2rem;
   animation: fade 2.5s infinite;
 }
@@ -93,12 +97,14 @@
   100% { opacity: 0; }
 }
 
-/* ===== BUTTONS (blue restored) ===== */
+/* ===== BUTTONS (Centered Blue) ===== */
 .cta-row {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .btn {
@@ -108,23 +114,23 @@
   text-transform: uppercase;
   text-decoration: none;
   transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
+  text-align: center;
 }
 
-/* Primary button (blue gradient) */
 .btn.primary {
   background: linear-gradient(135deg, #4FC3F7, #0288D1);
   color: #fff;
   border: none;
+  display: inline-block;
+  margin: 0 auto;
 }
 
-/* Outline button (blue border) */
 .btn.outline {
   border: 2px solid #4FC3F7;
   color: #4FC3F7;
   background: transparent;
 }
 
-/* Hover effects */
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
@@ -150,6 +156,14 @@
   color: #ccc;
   margin-bottom: 1.5rem;
   line-height: 1.6;
+}
+
+/* ===== FIX: "View Membership" + CTA ===== */
+.membership-teaser .btn.primary,
+.cta .btn.primary {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  text-align: center;
 }
 
 /* ===== MOBILE ===== */

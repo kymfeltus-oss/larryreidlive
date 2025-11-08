@@ -14,9 +14,13 @@ export default function Messages() {
           <h1 className="header-title">Messages</h1>
         </div>
       </div>
-
       <section className="mock-page">
-        <p>Direct messages and updates from Dr. Larry Reid will appear here soon.</p>
+        <img
+          src="/assets/messages-icon.png"
+          alt="Messages Icon"
+          className="mock-icon"
+        />
+        <p>Direct updates and personal messages from Dr. Larry Reid.</p>
       </section>
     </>
   );

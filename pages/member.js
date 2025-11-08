@@ -85,7 +85,7 @@ export default function Member() {
   return (
     <>
       <Head>
-        <title>Member Hub — Dr. Larry Reid Live</title>
+        <title> — Dr. Larry Reid Live</title>
       </Head>
 
       <section className="member-hub">
@@ -113,9 +113,9 @@ export default function Member() {
 
         {/* Header (minimal, no emojis) */}
         <header className="hub-header fade-in">
-          <h1>Member Hub</h1>
-          <p>Mentorship, messages, community and events—organized for your journey.</p>
-        </header>
+  <h1>LRL’s Hub</h1>
+  <p>Mentorship, messages, community, and live events—exclusive to all LRL’s.</p>
+</header>
 
         {/* 2×2 compact grid (auto responsive) */}
         <div className="hub-grid container fade-in">

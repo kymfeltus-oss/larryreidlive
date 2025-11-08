@@ -2,7 +2,7 @@
    HOME PAGE — Dr. Larry Reid Live
    =============================== */
 
-/* ----- Banner ----- */
+/* ----- TOP BANNER ----- */
 .top-banner {
   position: relative;
   width: 100%;
@@ -17,15 +17,16 @@
   display: block;
 }
 
-/* ----- Hero Section ----- */
+/* ----- HERO SECTION ----- */
 .hero-section {
   position: relative;
-  height: calc(100vh - 150px);
   width: 100%;
+  height: calc(100vh - 150px);
   display: grid;
   place-items: center;
   text-align: center;
   overflow: hidden;
+  background: #0a0f18;
 }
 
 .hero-video {
@@ -34,22 +35,27 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.5) saturate(110%);
-  z-index: -2;
+  filter: brightness(0.6) saturate(110%);
+  z-index: -3;
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 30% 50%,
-    rgba(26, 46, 74, 0.3) 0%,
-    rgba(10, 15, 24, 0.9) 90%
+  z-index: -2;
+}
+.overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 15, 24, 0) 60%,
+    rgba(10, 15, 24, 0.85) 100%
   );
-  z-index: -1;
 }
 
-/* ----- Hero Content ----- */
+/* ----- HERO CONTENT ----- */
 .hero-content {
   z-index: 2;
   color: #fff;
@@ -62,23 +68,33 @@
   padding: 0 1rem;
 }
 
-/* ----- Logo (larger + motion) ----- */
+/* ----- LOGO (scaled + wave motion) ----- */
 .hero-logo {
   width: clamp(200px, 40vw, 260px);
   height: auto;
   margin-bottom: 1.2rem;
-  animation: wave 6s ease-in-out infinite alternate;
+  animation: wave 7s ease-in-out infinite alternate;
 }
 
 @keyframes wave {
-  0% { transform: perspective(400px) rotateY(0deg) rotateX(0deg) scale(1); }
-  25% { transform: perspective(400px) rotateY(3deg) rotateX(2deg) scale(1.02); }
-  50% { transform: perspective(400px) rotateY(0deg) rotateX(0deg) scale(1); }
-  75% { transform: perspective(400px) rotateY(-3deg) rotateX(-2deg) scale(1.02); }
-  100% { transform: perspective(400px) rotateY(0deg) rotateX(0deg) scale(1); }
+  0% {
+    transform: perspective(400px) rotateY(0deg) rotateX(0deg) scale(1);
+  }
+  25% {
+    transform: perspective(400px) rotateY(3deg) rotateX(2deg) scale(1.02);
+  }
+  50% {
+    transform: perspective(400px) rotateY(0deg) rotateX(0deg) scale(1);
+  }
+  75% {
+    transform: perspective(400px) rotateY(-3deg) rotateX(-2deg) scale(1.02);
+  }
+  100% {
+    transform: perspective(400px) rotateY(0deg) rotateX(0deg) scale(1);
+  }
 }
 
-/* ----- Tagline ----- */
+/* ----- TAGLINE ----- */
 .typewriter {
   font-size: 1.5rem;
   color: #ff3b3b;
@@ -92,7 +108,7 @@
   100% { opacity: 0; }
 }
 
-/* ----- CTA Buttons (Centered) ----- */
+/* ----- CTA BUTTONS (centered, equal width) ----- */
 .cta-row {
   display: flex;
   justify-content: center;
@@ -103,7 +119,6 @@
   max-width: 380px;
   margin: 0 auto;
 }
-
 .btn {
   flex: 1 1 45%;
   min-width: 160px;
@@ -115,19 +130,16 @@
   text-align: center;
   transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
-
 .btn.primary {
   background: linear-gradient(135deg, #4FC3F7, #0288D1);
   color: #fff;
   border: none;
 }
-
 .btn.outline {
   border: 2px solid #4FC3F7;
   color: #4FC3F7;
   background: transparent;
 }
-
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
@@ -135,32 +147,37 @@
   color: #fff;
 }
 
-/* ----- Content Sections Below Hero ----- */
+/* ----- SECTIONS BELOW HERO ----- */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 4rem 1.5rem;
   text-align: center;
 }
-
 .container h3 {
   font-size: 2rem;
   color: #fff;
   margin-bottom: 1rem;
 }
-
 .container p {
   color: #ccc;
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
 
-/* ----- Responsive Adjustments ----- */
+/* ----- RESPONSIVE ----- */
 @media (max-width: 640px) {
   .top-banner { height: 90px; }
   .hero-section { height: calc(100vh - 90px); }
   .hero-logo { width: clamp(160px, 60vw, 220px); }
   .typewriter { font-size: 1.2rem; }
-  .cta-row { flex-direction: column; gap: 0.8rem; max-width: 280px; }
-  .btn { width: 100%; margin: 0 auto; }
+  .cta-row {
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 280px;
+  }
+  .btn {
+    width: 100%;
+    margin: 0 auto;
+  }
 }

@@ -2,12 +2,14 @@
 import "../styles/globals.css";
 import "../styles/layout.css";
 import "../styles/home.css";
-import "../styles/memberhub.css";
 import "../styles/membership.css";
+import "../styles/music.css";
+import "../styles/services.css";
+import "../styles/memberhub.css";
 
 import Layout from "../components/Layout";
 
-export default function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   return (
     <Layout>
       <Component {...pageProps} />

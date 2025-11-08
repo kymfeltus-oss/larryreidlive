@@ -14,9 +14,13 @@ export default function Community() {
           <h1 className="header-title">Community</h1>
         </div>
       </div>
-
       <section className="mock-page">
-        <p>Connect with other LRL members and join exclusive discussions here.</p>
+        <img
+          src="/assets/community-icon.png"
+          alt="Community Icon"
+          className="mock-icon"
+        />
+        <p>Connect with other members, share experiences, and engage in forums.</p>
       </section>
     </>
   );

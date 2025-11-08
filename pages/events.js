@@ -14,9 +14,13 @@ export default function Events() {
           <h1 className="header-title">Events</h1>
         </div>
       </div>
-
       <section className="mock-page">
-        <p>Upcoming mentorship sessions, retreats, and gatherings will appear here.</p>
+        <img
+          src="/assets/events-icon.png"
+          alt="Events Icon"
+          className="mock-icon"
+        />
+        <p>View upcoming sessions, retreats, and live mentorship gatherings.</p>
       </section>
     </>
   );

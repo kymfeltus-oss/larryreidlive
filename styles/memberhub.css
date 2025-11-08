@@ -235,4 +235,50 @@
 @media (min-width: 600px) {
   .hub-grid { grid-template-columns: repeat(2, 1fr); }
   .plan-grid { grid-template-columns: repeat(2, 1fr); }
+} /* --- Mock pages for Hub links --- */
+.page-header {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  height: 140px;
+  overflow: hidden;
+  z-index: 10;
 }
+.page-header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+.header-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(10,15,24,0.4);
+}
+.header-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.mock-page {
+  padding-top: 215px;
+  padding-bottom: 5rem;
+  text-align: center;
+  color: #fff;
+  background: #0a0f18;
+  min-height: 100vh;
+}
+.mock-page p {
+  font-size: 0.9rem;
+  color: #ccc;
+  max-width: 360px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+

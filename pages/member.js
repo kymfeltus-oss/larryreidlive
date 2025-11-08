@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function Member() {
   const userName = "John Doe";
 
-  // 🔔 Mock notifications
+  // 🔔 Mock notifications (same as before)
   const notifications = [
     "🕊️ New Prophetic Word uploaded in The Vault.",
     "📢 Mentorship Q&A with Dr. Reid this Thursday @ 7PM EST.",
@@ -17,6 +17,29 @@ export default function Member() {
   const [activeNote, setActiveNote] = useState(notifications[0]);
   const [visible, setVisible] = useState(true);
 
+  // 💌 Message Center state
+  const [open, setOpen] = useState(false);
+  const messages = [
+    {
+      title: "🕊️ Prophetic Insight: Walking in Divine Favor",
+      snippet:
+        "Dr. Reid shares how aligning your energy with purpose unlocks doors no man can close...",
+      date: "Nov 8, 2025",
+    },
+    {
+      title: "🔥 Mentorship Replay Available",
+      snippet:
+        "Last night’s session 'Breaking Cycles of Limitation' is now uploaded to The Vault.",
+      date: "Nov 7, 2025",
+    },
+    {
+      title: "💼 Business Strategy Call",
+      snippet:
+        "Join Dr. Reid for a faith-driven business Q&A next week. Seats are limited!",
+      date: "Nov 5, 2025",
+    },
+  ];
+
   // Auto-rotate notifications
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,19 +47,17 @@ export default function Member() {
         notifications[Math.floor(Math.random() * notifications.length)];
       setActiveNote(randomNote);
       setVisible(true);
-      setTimeout(() => setVisible(false), 10000); // Auto-hide after 10s
-    }, 15000); // Rotate every 15s
+      setTimeout(() => setVisible(false), 10000);
+    }, 15000);
     return () => clearInterval(interval);
   }, []);
 
-  // Scroll fade-ins (unchanged)
+  // Scroll fade-ins
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("visible");
         });
       },
       { threshold: 0.15 }
@@ -53,7 +74,7 @@ export default function Member() {
       </Head>
 
       <section className="member-hub">
-        {/* 🔔 Floating Notification */}
+        {/* 🔔 Notification Banner */}
         {visible && (
           <div className="notification-banner">
             <p>{activeNote}</p>
@@ -66,6 +87,38 @@ export default function Member() {
             </button>
           </div>
         )}
+
+        {/* 💌 Floating Message Button */}
+        <button
+          className="message-toggle"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle Message Center"
+        >
+          💌 Messages
+        </button>
+
+        {/* 💬 Slide-Out Message Panel */}
+        <div className={`message-center ${open ? "open" : ""}`}>
+          <div className="message-header">
+            <h3>Messages from Dr. Reid</h3>
+            <button
+              className="close-panel"
+              onClick={() => setOpen(false)}
+              aria-label="Close Message Center"
+            >
+              ✖
+            </button>
+          </div>
+          <div className="message-list">
+            {messages.map((msg, index) => (
+              <div key={index} className="message-item">
+                <h4>{msg.title}</h4>
+                <p>{msg.snippet}</p>
+                <span className="msg-date">{msg.date}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Hero */}
         <div className="hub-hero fade-in-up">
@@ -81,25 +134,25 @@ export default function Member() {
           <Link href="#" className="hub-tile glow">
             <span className="emoji">📚</span>
             <h3>The Vault</h3>
-            <p>Access archived teachings, mentorship sessions, and resources.</p>
+            <p>Access archived teachings and mentorship sessions.</p>
           </Link>
 
           <Link href="#" className="hub-tile glow">
             <span className="emoji">💬</span>
             <h3>Messages from Dr. Reid</h3>
-            <p>Exclusive messages, prophetic insights, and daily inspiration.</p>
+            <p>Exclusive prophetic insights and daily inspiration.</p>
           </Link>
 
           <Link href="#" className="hub-tile glow">
             <span className="emoji">👥</span>
             <h3>Community Board</h3>
-            <p>Connect with members — share testimonies, prayers, and wins.</p>
+            <p>Connect, share testimonies, and pray with other members.</p>
           </Link>
 
           <Link href="#" className="hub-tile glow">
             <span className="emoji">📅</span>
             <h3>Events & Mentorships</h3>
-            <p>View upcoming mentorship sessions and exclusive gatherings.</p>
+            <p>See upcoming mentorship sessions and special events.</p>
           </Link>
         </div>
 
@@ -125,7 +178,8 @@ export default function Member() {
           <div className="hub-card fade-in-up">
             <h2>🌍 Community Highlights</h2>
             <p>
-              147 new testimonies this week! Members worldwide are sharing breakthroughs and blessings.
+              147 new testimonies this week! Members worldwide are sharing
+              breakthroughs and blessings.
             </p>
             <Link href="#" className="btn outline">
               Visit Community
@@ -133,11 +187,12 @@ export default function Member() {
           </div>
         </div>
 
-        {/* Action CTA */}
+        {/* CTA */}
         <div className="hub-cta container fade-in-up">
           <h2>Ready to Go Deeper? 🔥</h2>
           <p>
-            Book personal coaching, prophetic consultations, or business mentorship with Dr. Larry Reid today.
+            Book personal coaching, prophetic consultations, or business
+            mentorship with Dr. Larry Reid today.
           </p>
           <Link href="/services" className="btn primary">
             Explore Services

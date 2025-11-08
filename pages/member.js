@@ -3,200 +3,137 @@ import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+/**
+ * Hybrid live layout:
+ * - If NEXT_PUBLIC_CROWDCAST_URL is set, a LIVE banner with embed is shown at the top.
+ * - Otherwise, the dashboard shows a "Watch Live" tile in the grid.
+ *
+ * Add your private live link to Netlify → Site Settings → Environment:
+ *   NEXT_PUBLIC_CROWDCAST_URL=https://www.crowdcast.io/e/your-event?embed=true
+ */
+
 export default function Member() {
-  const userName = "John Doe";
+  const crowdcastUrl = process.env.NEXT_PUBLIC_CROWDCAST_URL || ""; // when non-empty, banner shows
+  const [showBanner, setShowBanner] = useState(Boolean(crowdcastUrl));
 
-  // 🔔 Mock notifications (same as before)
-  const notifications = [
-    "🕊️ New Prophetic Word uploaded in The Vault.",
-    "📢 Mentorship Q&A with Dr. Reid this Thursday @ 7PM EST.",
-    "🔥 Testimonies are flooding in — check the Community Board!",
-    "🎥 New exclusive video message from Dr. Reid is live now.",
-  ];
-
-  const [activeNote, setActiveNote] = useState(notifications[0]);
-  const [visible, setVisible] = useState(true);
-
-  // 💌 Message Center state
-  const [open, setOpen] = useState(false);
-  const messages = [
-    {
-      title: "🕊️ Prophetic Insight: Walking in Divine Favor",
-      snippet:
-        "Dr. Reid shares how aligning your energy with purpose unlocks doors no man can close...",
-      date: "Nov 8, 2025",
-    },
-    {
-      title: "🔥 Mentorship Replay Available",
-      snippet:
-        "Last night’s session 'Breaking Cycles of Limitation' is now uploaded to The Vault.",
-      date: "Nov 7, 2025",
-    },
-    {
-      title: "💼 Business Strategy Call",
-      snippet:
-        "Join Dr. Reid for a faith-driven business Q&A next week. Seats are limited!",
-      date: "Nov 5, 2025",
-    },
-  ];
-
-  // Auto-rotate notifications
+  // IntersectionObserver for scroll-in animations
   useEffect(() => {
-    const interval = setInterval(() => {
-      const randomNote =
-        notifications[Math.floor(Math.random() * notifications.length)];
-      setActiveNote(randomNote);
-      setVisible(true);
-      setTimeout(() => setVisible(false), 10000);
-    }, 15000);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Scroll fade-ins
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      },
+    const obs = new IntersectionObserver(
+      (ents) => ents.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
       { threshold: 0.15 }
     );
-    const elements = document.querySelectorAll(".fade-in-up");
-    elements.forEach((el) => observer.observe(el));
-    return () => elements.forEach((el) => observer.unobserve(el));
+    document.querySelectorAll(".fade-in").forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
   }, []);
+
+  // SVG icons (neutral, professional)
+  const Icon = {
+    Vault: () => (
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+        <rect x="3" y="7" width="18" height="12" rx="2" stroke="#4FC3F7" strokeWidth="1.6"/>
+        <path d="M7 7V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1" stroke="#4FC3F7" strokeWidth="1.6"/>
+        <circle cx="12" cy="13" r="2.6" stroke="#4FC3F7" strokeWidth="1.6"/>
+        <path d="M12 11.2V9.8" stroke="#4FC3F7" strokeWidth="1.6"/>
+      </svg>
+    ),
+    Messages: () => (
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+        <path d="M4 5h16v10H8l-4 4V5z" stroke="#4FC3F7" strokeWidth="1.6" strokeLinejoin="round"/>
+        <path d="M8 9h8M8 12h6" stroke="#4FC3F7" strokeWidth="1.6" strokeLinecap="round"/>
+      </svg>
+    ),
+    Community: () => (
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+        <circle cx="8" cy="8" r="3" stroke="#4FC3F7" strokeWidth="1.6"/>
+        <circle cx="16" cy="8" r="3" stroke="#4FC3F7" strokeWidth="1.6"/>
+        <path d="M3.5 19a5 5 0 0 1 5-5h0a5 5 0 0 1 5 5v1H3.5v-1z" stroke="#4FC3F7" strokeWidth="1.6"/>
+        <path d="M14 19v1h6v-1a5 5 0 0 0-5-5h0" stroke="#4FC3F7" strokeWidth="1.6"/>
+      </svg>
+    ),
+    Events: () => (
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+        <path d="M7 2v3M17 2v3M4 7h16v13H4V7z" stroke="#4FC3F7" strokeWidth="1.6" strokeLinejoin="round"/>
+        <path d="M8 11h3v3H8zM13 11h3v3h-3zM8 15h3v3H8z" stroke="#4FC3F7" strokeWidth="1.6" />
+      </svg>
+    ),
+    Live: () => (
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+        <circle cx="12" cy="12" r="9" stroke="#4FC3F7" strokeWidth="1.6"/>
+        <path d="M10 8l6 4-6 4V8z" fill="#4FC3F7"/>
+      </svg>
+    ),
+  };
+
+  // Dashboard tiles (links are placeholders—wire up later)
+  const tiles = [
+    { title: "The Vault", desc: "Archived teachings & resources.", href: "#", Icon: Icon.Vault },
+    { title: "Messages", desc: "Direct updates from Dr. Reid.", href: "#", Icon: Icon.Messages },
+    { title: "Community", desc: "Testimonies, prayer & discussion.", href: "#", Icon: Icon.Community },
+    { title: "Events", desc: "Mentorship sessions & gatherings.", href: "#", Icon: Icon.Events },
+  ];
+
+  // Include Watch Live tile only when not live
+  if (!showBanner) {
+    tiles.unshift({
+      title: "Watch Live",
+      desc: "Private member live stream.",
+      href: "/live", // or route to a page that embeds live when ready
+      Icon: Icon.Live
+    });
+  }
 
   return (
     <>
       <Head>
-        <title>Membership Hub — Dr. Larry Reid Live</title>
+        <title>Member Hub — Dr. Larry Reid Live</title>
       </Head>
 
       <section className="member-hub">
-        {/* 🔔 Notification Banner */}
-        {visible && (
-          <div className="notification-banner">
-            <p>{activeNote}</p>
-            <button
-              className="close-btn"
-              onClick={() => setVisible(false)}
-              aria-label="Dismiss notification"
-            >
-              ✖
-            </button>
+        {/* Hybrid LIVE banner (Crowdcast) */}
+        {showBanner && (
+          <div className="live-banner fade-in">
+            <div className="live-header">
+              <span className="live-dot" /> <strong>Live Now</strong>
+            </div>
+            <div className="live-frame">
+              <iframe
+                title="LRL Crowdcast Live"
+                src={crowdcastUrl}
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className="live-actions">
+              <a className="btn primary btn-center" href={crowdcastUrl} target="_blank" rel="noopener noreferrer">
+                Open in New Window
+              </a>
+            </div>
           </div>
         )}
 
-        {/* 💌 Floating Message Button */}
-        <button
-          className="message-toggle"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle Message Center"
-        >
-          💌 Messages
-        </button>
+        {/* Header (minimal, no emojis) */}
+        <header className="hub-header fade-in">
+          <h1>Member Hub</h1>
+          <p>Mentorship, messages, community and events—organized for your journey.</p>
+        </header>
 
-        {/* 💬 Slide-Out Message Panel */}
-        <div className={`message-center ${open ? "open" : ""}`}>
-          <div className="message-header">
-            <h3>Messages from Dr. Reid</h3>
-            <button
-              className="close-panel"
-              onClick={() => setOpen(false)}
-              aria-label="Close Message Center"
-            >
-              ✖
-            </button>
-          </div>
-          <div className="message-list">
-            {messages.map((msg, index) => (
-              <div key={index} className="message-item">
-                <h4>{msg.title}</h4>
-                <p>{msg.snippet}</p>
-                <span className="msg-date">{msg.date}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Hero */}
-        <div className="hub-hero fade-in-up">
-          <h1>Welcome back, {userName} 👋</h1>
-          <p>
-            Your hub for mentorship, prophetic insight, and community connection
-            with Dr. Larry Reid.
-          </p>
-        </div>
-
-        {/* Quick Access Tiles */}
-        <div className="hub-grid container fade-in-up">
-          <Link href="#" className="hub-tile glow">
-            <span className="emoji">📚</span>
-            <h3>The Vault</h3>
-            <p>Access archived teachings and mentorship sessions.</p>
-          </Link>
-
-          <Link href="#" className="hub-tile glow">
-            <span className="emoji">💬</span>
-            <h3>Messages from Dr. Reid</h3>
-            <p>Exclusive prophetic insights and daily inspiration.</p>
-          </Link>
-
-          <Link href="#" className="hub-tile glow">
-            <span className="emoji">👥</span>
-            <h3>Community Board</h3>
-            <p>Connect, share testimonies, and pray with other members.</p>
-          </Link>
-
-          <Link href="#" className="hub-tile glow">
-            <span className="emoji">📅</span>
-            <h3>Events & Mentorships</h3>
-            <p>See upcoming mentorship sessions and special events.</p>
-          </Link>
-        </div>
-
-        {/* Featured Sections */}
-        <div className="hub-sections container">
-          <div className="hub-card fade-in-up">
-            <h2>🕊️ Message from Dr. Reid</h2>
-            <p>
-              “Every day is an opportunity to align with your divine purpose.
-              Live consciously, love intentionally, and lead boldly.”
-            </p>
-          </div>
-
-          <div className="hub-card fade-in-up">
-            <h2>📖 Upcoming Mentorship</h2>
-            <p><strong>Topic:</strong> “Breaking Cycles of Limitation”</p>
-            <p><strong>Date:</strong> Thursday @ 7:00 PM EST</p>
-            <Link href="#" className="btn primary">
-              Join Live Session
+        {/* 2×2 compact grid (auto responsive) */}
+        <div className="hub-grid container fade-in">
+          {tiles.map(({ title, desc, href, Icon }, i) => (
+            <Link href={href} key={i} className="tile">
+              <div className="tile-icon"><Icon /></div>
+              <h3>{title}</h3>
+              <p>{desc}</p>
+              <span className="btn outline btn-center">Open</span>
             </Link>
-          </div>
-
-          <div className="hub-card fade-in-up">
-            <h2>🌍 Community Highlights</h2>
-            <p>
-              147 new testimonies this week! Members worldwide are sharing
-              breakthroughs and blessings.
-            </p>
-            <Link href="#" className="btn outline">
-              Visit Community
-            </Link>
-          </div>
+          ))}
         </div>
 
         {/* CTA */}
-        <div className="hub-cta container fade-in-up">
-          <h2>Ready to Go Deeper? 🔥</h2>
-          <p>
-            Book personal coaching, prophetic consultations, or business
-            mentorship with Dr. Larry Reid today.
-          </p>
-          <Link href="/services" className="btn primary">
-            Explore Services
-          </Link>
+        <div className="hub-cta container fade-in">
+          <h2>Explore Services</h2>
+          <p>Prophetic consultations, coaching, and business mentorship with Dr. Larry Reid.</p>
+          <Link href="/services" className="btn primary btn-center">View Services</Link>
         </div>
       </section>
     </>

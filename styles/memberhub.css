@@ -87,4 +87,64 @@
   line-height: 1.6;
   max-width: 480px;
 }
+/* --- The Vault video grid --- */
+.vault-page {
+  text-align: center;
+  padding: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.vault-page h1 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #4FC3F7;
+  margin-bottom: 0.4rem;
+}
+
+.vault-page p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.video-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.video-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.video-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4FC3F7;
+  margin: 0.3rem 0;
+}
+
+.video-card p {
+  font-size: 0.85rem;
+  color: #ccc;
+  margin: 0;
+}
 

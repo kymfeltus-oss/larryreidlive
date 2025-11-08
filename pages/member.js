@@ -1,10 +1,31 @@
 // pages/member.js
 import Head from "next/head";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Member() {
-  // Mock user name
   const userName = "John Doe";
+
+  useEffect(() => {
+    // Scroll animation logic
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    const elements = document.querySelectorAll(".fade-in-up");
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   return (
     <>
@@ -14,35 +35,35 @@ export default function Member() {
 
       <section className="member-hub">
         {/* Hero / Welcome */}
-        <div className="hub-hero">
+        <div className="hub-hero fade-in-up">
           <h1>Welcome back, {userName} 👋</h1>
           <p>
-            Your hub for mentorship, messages, prophetic insight, and exclusive
-            community engagement with Dr. Larry Reid.
+            Your hub for mentorship, prophetic insight, and community connection
+            with Dr. Larry Reid.
           </p>
         </div>
 
         {/* Quick Access Tiles */}
-        <div className="hub-grid container">
-          <Link href="#" className="hub-tile">
+        <div className="hub-grid container fade-in-up">
+          <Link href="#" className="hub-tile glow">
             <span className="emoji">📚</span>
             <h3>The Vault</h3>
             <p>Access archived teachings, mentorship sessions, and resources.</p>
           </Link>
 
-          <Link href="#" className="hub-tile">
+          <Link href="#" className="hub-tile glow">
             <span className="emoji">💬</span>
             <h3>Messages from Dr. Reid</h3>
             <p>Exclusive messages, prophetic insights, and daily inspiration.</p>
           </Link>
 
-          <Link href="#" className="hub-tile">
+          <Link href="#" className="hub-tile glow">
             <span className="emoji">👥</span>
             <h3>Community Board</h3>
             <p>Connect with members — share testimonies, prayers, and wins.</p>
           </Link>
 
-          <Link href="#" className="hub-tile">
+          <Link href="#" className="hub-tile glow">
             <span className="emoji">📅</span>
             <h3>Events & Mentorships</h3>
             <p>View upcoming mentorship sessions and exclusive gatherings.</p>
@@ -51,7 +72,7 @@ export default function Member() {
 
         {/* Featured Sections */}
         <div className="hub-sections container">
-          <div className="hub-card message">
+          <div className="hub-card fade-in-up">
             <h2>🕊️ Message from Dr. Reid</h2>
             <p>
               “Every day is an opportunity to align with your divine purpose.
@@ -59,7 +80,7 @@ export default function Member() {
             </p>
           </div>
 
-          <div className="hub-card session">
+          <div className="hub-card fade-in-up">
             <h2>📖 Upcoming Mentorship</h2>
             <p><strong>Topic:</strong> “Breaking Cycles of Limitation”</p>
             <p><strong>Date:</strong> Thursday @ 7:00 PM EST</p>
@@ -68,7 +89,7 @@ export default function Member() {
             </Link>
           </div>
 
-          <div className="hub-card community">
+          <div className="hub-card fade-in-up">
             <h2>🌍 Community Highlights</h2>
             <p>
               147 new testimonies this week! Members worldwide are sharing breakthroughs and blessings.
@@ -80,7 +101,7 @@ export default function Member() {
         </div>
 
         {/* Action CTA */}
-        <div className="hub-cta container">
+        <div className="hub-cta container fade-in-up">
           <h2>Ready to Go Deeper? 🔥</h2>
           <p>
             Book personal coaching, prophetic consultations, or business mentorship with Dr. Larry Reid today.

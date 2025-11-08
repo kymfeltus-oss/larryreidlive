@@ -1,236 +1,102 @@
 /* ===============================
-   MEMBERSHIP PAGE — Dr. Larry Reid Live (Polished Layout)
+   MEMBERSHIP PAGE — Dr. Larry Reid Live
    =============================== */
 
-/* ===== HERO SECTION (Join the Movement) ===== */
+/* ----- Compact “Join the Movement” hero ----- */
 .membership-hero {
   position: relative;
-  background: linear-gradient(180deg, rgba(10, 15, 24, 0.95), rgba(10, 15, 24, 1));
-  min-height: 30vh; /* reduced */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: linear-gradient(180deg, rgba(10,15,24,.95), rgba(10,15,24,1));
+  min-height: 26vh;                   /* compact: removes big gap */
+  display: grid; place-items: center;
   text-align: center;
-  padding: 2rem 1rem 1rem; /* tighter */
+  padding: 24px 16px 12px;
 }
-
-.membership-hero .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 15, 24, 0.7);
-}
-
-.membership-hero .hero-content {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  max-width: 640px;
-  padding: 0 1rem;
-}
-
+.membership-hero .overlay { position:absolute; inset:0; background: rgba(10,15,24,.65); }
+.membership-hero .hero-content { position:relative; z-index:1; max-width:640px; }
 .membership-hero h1 {
-  font-size: clamp(1.8rem, 5vw, 2.3rem);
-  margin-bottom: 0.4rem;
-  font-weight: 900;
-  color: #ff3b3b;
-  text-transform: uppercase;
-  line-height: 1.1;
+  font-size: clamp(1.7rem, 4.8vw, 2.3rem);
+  margin: 0 0 8px;
+  font-weight: 900; line-height: 1.1; text-transform: uppercase; color:#ff3b3b;
 }
-
 .membership-hero p {
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #ccc;
-  margin: 0 auto;
-  max-width: 500px;
+  font-size: 1rem; line-height: 1.45; color:#ccc; margin: 0 auto; max-width: 520px;
 }
 
-/* ===== MEMBERSHIP TIERS ===== */
+/* ----- Section heading ----- */
 .plans {
   text-align: center;
-  padding: 2rem 1rem 4rem;
+  padding: 28px 16px 56px;            /* tighter top padding -> tiers become focal */
 }
-
 .plans h2 {
-  font-size: 1.9rem;
-  color: #ff3b3b;
-  margin-bottom: 0.4rem;
-  font-weight: 900;
+  font-size: 1.9rem; color:#ff3b3b; margin: 0 0 6px; font-weight: 900;
 }
+.plans .subtext { color:#ccc; margin: 0 auto 22px; max-width: 640px; }
 
-.plans .subtext {
-  color: #ccc;
-  margin-bottom: 1.8rem;
-  font-size: 1rem;
-}
-
+/* ----- Uniform, non-overlapping tier cards ----- */
 .plan-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* ✅ centers all boxes */
-  align-items: stretch;
-  gap: 1.5rem;
-  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;                          /* space so shadows never overlap */
+  max-width: 1120px;
   margin: 0 auto;
+  align-items: stretch;
 }
-
-/* ===== INDIVIDUAL PLAN CARDS ===== */
 .plan-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  width: 300px; /* ✅ uniform width */
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  padding: 22px 18px;
+  display: flex; flex-direction: column; justify-content: space-between; align-items: center;
   text-align: center;
-  padding: 2rem 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  box-shadow: 0 0 0 rgba(0,0,0,0);    /* reset any old glow */
 }
-
-.plan-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 25px rgba(79, 195, 247, 0.25);
-}
-
-.plan-card h3 {
-  color: #ff3b3b;
-  font-size: 1.3rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-}
-
-.plan-card .price {
-  font-size: 1.8rem;
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 1rem;
-}
+.plan-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,0,0,.28); }
+.plan-card h3 { color:#ff3b3b; font-weight: 800; font-size:1.25rem; margin: 4px 0 8px; }
+.plan-card .price { color:#fff; font-size: 1.85rem; font-weight: 900; margin-bottom: 12px; }
 
 .plan-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto 1.5rem;
-  color: #ccc;
-  text-align: left;
-  width: 90%;
-  line-height: 1.6;
+  list-style: none; padding: 0; margin: 0 0 18px;
+  color:#ccc; line-height: 1.55; width: 100%; max-width: 240px; text-align: left;
 }
+.plan-card li { margin-bottom: 8px; padding-left: 12px; position: relative; }
+.plan-card li::before { content: "•"; color:#ff3b3b; position:absolute; left:0; }
 
-.plan-card li {
-  margin-bottom: 0.5rem;
-  padding-left: 1rem;
-  position: relative;
-}
+/* highlight versions (subtle; no glow overlap) */
+.plan-card.highlight { border-color: rgba(79,195,247,.7); background: rgba(79,195,247,.07); }
+.plan-card.elite     { border-color: #b71c1c; }
 
-.plan-card li::before {
-  content: "•";
-  color: #ff3b3b;
-  position: absolute;
-  left: 0;
-}
-
-/* Highlight / Elite plans */
-.plan-card.highlight {
-  border: 2px solid #4FC3F7;
-  background: rgba(79, 195, 247, 0.07);
-}
-.plan-card.elite {
-  border: 2px solid #b71c1c;
-}
-
-/* ===== BUTTONS (Centered + Same Size) ===== */
+/* ----- Buttons inside cards: perfectly centered & same width ----- */
 .btn {
-  padding: 0.9rem 1.4rem;
-  border-radius: 1.2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
-  transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
   display: inline-block;
-  margin: 1rem auto 0;
   width: 80%;
+  max-width: 260px;
+  margin: 8px auto 0;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-weight: 800; text-transform: uppercase; text-align: center;
+  transition: transform .15s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
 }
+.btn.primary { background: linear-gradient(135deg,#4FC3F7,#0288D1); color:#fff; border:none; }
+.btn.outline { background: transparent; color:#4FC3F7; border: 2px solid #4FC3F7; }
+.btn:hover   { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(79,195,247,.28); }
 
-.btn.primary {
-  background: linear-gradient(135deg, #4FC3F7, #0288D1);
-  color: #fff;
-  border: none;
-}
-
-.btn.outline {
-  border: 2px solid #4FC3F7;
-  color: #4FC3F7;
-  background: transparent;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
-  color: #fff;
-}
-
-/* ===== WHY JOIN CTA ===== */
+/* ----- “Why Join” CTA at bottom ----- */
 .cta {
   text-align: center;
-  padding: 3.5rem 1.5rem 5rem;
+  padding: 48px 16px 64px;
 }
+.cta h2 { color:#ff3b3b; font-size: 1.9rem; font-weight: 900; margin: 0 0 12px; }
+.cta p  { color:#ccc; max-width: 720px; margin: 0 auto 18px; line-height: 1.6; }
+.cta .btn.primary { width: 220px; margin: 0 auto; }
 
-.cta h2 {
-  font-size: 1.9rem;
-  color: #ff3b3b;
-  margin-bottom: 1rem;
-  font-weight: 900;
-}
-
-.cta p {
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  color: #ccc;
-  line-height: 1.6;
-}
-
-.cta .btn.primary {
-  display: block;
-  margin: 0 auto;
-  width: 220px;
-}
-
-/* ===== MOBILE RESPONSIVE ===== */
-@media (max-width: 640px) {
-  .membership-hero {
-    min-height: 25vh; /* tighter on mobile */
-    padding: 1.5rem 1rem;
-  }
-
-  .membership-hero h1 {
-    font-size: 1.5rem;
-  }
-
-  .membership-hero p {
-    font-size: 0.95rem;
-  }
-
-  .plan-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .plan-card {
-    width: 90%;
-    max-width: 340px;
-  }
-
-  .btn {
-    width: 90%;
-  }
-
-  .plans {
-    padding: 1.5rem 1rem 3rem;
-  }
-
-  .cta {
-    padding: 2.5rem 1rem 3rem;
-  }
+/* ----- Mobile adjustments ----- */
+@media (max-width: 640px){
+  .membership-hero { min-height: 22vh; padding: 16px 12px 8px; }
+  .membership-hero h1 { font-size: 1.5rem; }
+  .membership-hero p  { font-size: .95rem; max-width: 460px; }
+  .plans { padding: 20px 12px 44px; }
+  .plan-grid { gap: 14px; }
+  .plan-card { padding: 18px 14px; }
+  .btn { width: 90%; }
 }

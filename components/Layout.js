@@ -1,7 +1,5 @@
-// components/Layout.js
 import Navbar from "./Navbar";
 import BottomTabs from "./BottomTabs";
-import "../styles/layout.css";
 
 export default function Layout({ children }) {
   return (

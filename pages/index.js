@@ -1,15 +1,12 @@
-// pages/index.js
 import Head from "next/head";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>LRL — Dashboard</title>
-      </Head>
+      <Head><title>LRL — Dashboard</title></Head>
 
-      {/* Banner at the top */}
+      {/* Top Banner */}
       <div className="top-banner">
         <img
           src="/assets/channels4_banner.jpg"
@@ -18,7 +15,7 @@ export default function Home() {
         />
       </div>
 
-      {/* MP4 Background */}
+      {/* MP4 Hero Section */}
       <section className="hero-section">
         <video
           className="hero-video"
@@ -30,16 +27,14 @@ export default function Home() {
         />
         <div className="overlay"></div>
 
-        {/* Main logo and text */}
         <div className="hero-content">
           <img
             src="/assets/logo.png"
-            alt="Larry Reid Live Logo"
+            alt="Larry Reid Live"
             className="hero-logo"
           />
           <h2 className="typewriter">The Dr. Larry Reid Experience</h2>
 
-          {/* Buttons */}
           <div className="cta-row">
             <a
               href="https://www.youtube.com/@LarryReidLive/streams"

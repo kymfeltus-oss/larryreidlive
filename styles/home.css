@@ -1,84 +1,125 @@
 /* ===============================
-   HOME PAGE — Dr. Larry Reid Live (Centered Fix)
+   HOME PAGE — Dr. Larry Reid Live
    =============================== */
 
-/* ===== HERO SECTION ===== */
+/* ----- Top banner ----- */
+.top-banner {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  z-index: 5;
+}
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ----- Hero section ----- */
 .hero-section {
   position: relative;
-  height: calc(100vh - 150px);
   width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: calc(100vh - 150px);       /* fill the screen under the banner */
+  display: grid;
+  place-items: center;                /* vertical + horizontal centering */
   text-align: center;
+  overflow: hidden;
+  isolation: isolate;                 /* prevents background bleed */
 }
-
+.hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5) saturate(110%);
+  z-index: -2;
+}
+.overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient( circle at 30% 50%,
+    rgba(26,46,74,.3) 0%, rgba(10,15,24,.9) 90% );
+  z-index: -1;
+}
 .hero-content {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  padding: 0 1rem;
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ===== CTA BUTTONS FIX ===== */
-.cta-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  max-width: 720px;
   width: 100%;
-  max-width: 360px;       /* tighter container */
-  margin: 0 auto;         /* center container */
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex; flex-direction: column; align-items: center;
 }
 
+/* ----- Logo + tagline ----- */
+.hero-logo {
+  width: 160px; height: auto; margin-bottom: 12px;
+}
+@keyframes fadeIn { from {opacity:0; transform:translateY(20px)} to {opacity:1; transform:none} }
+.hero-logo { animation: fadeIn 1s ease both; }
+
+.typewriter {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  height: 2rem;
+  color: #ff3b3b;
+  margin-bottom: 22px;
+  animation: tvfade 2.5s infinite;
+}
+@keyframes tvfade { 0%{opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{opacity:0} }
+
+/* ----- CTAs: equal width, centered, no shifting ----- */
+.cta-row {
+  width: 100%;
+  max-width: 380px;                  /* locks container so text animation won't push it */
+  margin: 0 auto;
+  display: grid; gap: 12px;
+  grid-template-columns: 1fr;        /* stack on mobile; we’ll widen on larger screens */
+}
 .btn {
-  flex: 1 1 45%;
-  min-width: 160px;
-  padding: 0.9rem 1.4rem;
-  border-radius: 1.2rem;
+  display: inline-block;
+  width: 100%;                       /* identical width */
+  padding: 14px 18px;
+  border-radius: 18px;
   font-weight: 800;
   text-transform: uppercase;
-  text-align: center;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
+  text-align: center;
+  transition: transform .15s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
 }
-
 .btn.primary {
-  background: linear-gradient(135deg, #4FC3F7, #0288D1);
-  color: #fff;
-  border: none;
+  background: linear-gradient(135deg,#4FC3F7,#0288D1);
+  color: #fff; border: none;
 }
-
 .btn.outline {
-  border: 2px solid #4FC3F7;
-  color: #4FC3F7;
   background: transparent;
+  color: #4FC3F7;
+  border: 2px solid #4FC3F7;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79,195,247,.28); }
+
+/* ----- Content sections below hero ----- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  text-align: center;
+}
+.container h3 { font-size: 2rem; color:#fff; margin-bottom: 12px; }
+.container p  { color:#ccc; line-height: 1.6; margin: 0 auto 20px; max-width: 760px; }
+
+/* Ensure “View Memberships” and page CTAs are centered and consistent */
+.membership-teaser .btn.primary,
+.cta .btn.primary {
+  width: 220px;
+  margin: 20px auto 0;
 }
 
-/* Keep equal width even on mobile */
-.btn.primary,
-.btn.outline {
-  width: 100%;
-  margin: 0;
+/* ----- Responsive ----- */
+@media (min-width: 768px){
+  .cta-row { grid-template-columns: repeat(2,1fr); }   /* side by side on tablets/desktop */
 }
-
-/* Center for smaller screens */
-@media (max-width: 640px) {
-  .cta-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    max-width: 280px;
-  }
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
+@media (max-width: 640px){
+  .top-banner { height: 90px; }
+  .hero-section { height: calc(100vh - 90px); }
+  .hero-logo { width: 120px; }
+  .typewriter { font-size: 1.2rem; height: 1.6rem; }
 }

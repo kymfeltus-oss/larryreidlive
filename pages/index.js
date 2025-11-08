@@ -10,12 +10,12 @@ export default function Home() {
         <title>Larry Reid Live — Home</title>
         <meta
           name="description"
-          content="The Larry Reid Live App Prototype — Luxury tech experience with control, community, and consciousness."
+          content="Larry Reid Live App Prototype — luxury tech experience connecting faith, culture, and Christ consciousness."
         />
         <meta property="og:title" content="Larry Reid Live App Prototype" />
         <meta
           property="og:description"
-          content="Interactive prototype showing the new LRL app experience — designed for full creator control and data ownership."
+          content="Interactive prototype showing the new LRL app experience — designed for full creator control and community connection."
         />
         <meta
           property="og:image"
@@ -25,7 +25,7 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      {/* Top banner */}
+      {/* --- Top Banner --- */}
       <div className="top-banner">
         <img
           src="/assets/channels4_banner.jpg"
@@ -34,7 +34,7 @@ export default function Home() {
         />
       </div>
 
-      {/* Hero Section with video */}
+      {/* --- Hero Section with MP4 --- */}
       <section className="hero-section">
         <video
           className="hero-video"
@@ -42,12 +42,16 @@ export default function Home() {
           loop
           muted
           playsInline
-          src="/assets/hero-bg.mp4"
-          type="video/mp4"
-        />
+          preload="auto"
+          poster="/assets/hero-poster.jpg"
+        >
+          <source src="/assets/hero-bg.mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark overlay for contrast */}
         <div className="overlay"></div>
 
-        {/* Centered content */}
+        {/* Centered Logo + Buttons */}
         <div className="hero-content">
           <img
             src="/assets/logo.png"

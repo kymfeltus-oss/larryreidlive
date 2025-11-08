@@ -1,3 +1,10 @@
+/* keeps navbar/logo above but not covering banner */
+.member-hub {
+  background:#0a0f18;
+  color:#fff;
+  padding-top:80px; /* gives space for navbar logo */
+  overflow-x:hidden;
+}
 /* ===============================
    LRL HUB — Mobile First Layout
    =============================== */

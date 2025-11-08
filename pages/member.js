@@ -1,13 +1,36 @@
 // pages/member.js
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Member() {
   const userName = "John Doe";
 
+  // 🔔 Mock notifications
+  const notifications = [
+    "🕊️ New Prophetic Word uploaded in The Vault.",
+    "📢 Mentorship Q&A with Dr. Reid this Thursday @ 7PM EST.",
+    "🔥 Testimonies are flooding in — check the Community Board!",
+    "🎥 New exclusive video message from Dr. Reid is live now.",
+  ];
+
+  const [activeNote, setActiveNote] = useState(notifications[0]);
+  const [visible, setVisible] = useState(true);
+
+  // Auto-rotate notifications
   useEffect(() => {
-    // Scroll animation logic
+    const interval = setInterval(() => {
+      const randomNote =
+        notifications[Math.floor(Math.random() * notifications.length)];
+      setActiveNote(randomNote);
+      setVisible(true);
+      setTimeout(() => setVisible(false), 10000); // Auto-hide after 10s
+    }, 15000); // Rotate every 15s
+    return () => clearInterval(interval);
+  }, []);
+
+  // Scroll fade-ins (unchanged)
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -18,13 +41,9 @@ export default function Member() {
       },
       { threshold: 0.15 }
     );
-
     const elements = document.querySelectorAll(".fade-in-up");
     elements.forEach((el) => observer.observe(el));
-
-    return () => {
-      elements.forEach((el) => observer.unobserve(el));
-    };
+    return () => elements.forEach((el) => observer.unobserve(el));
   }, []);
 
   return (
@@ -34,7 +53,21 @@ export default function Member() {
       </Head>
 
       <section className="member-hub">
-        {/* Hero / Welcome */}
+        {/* 🔔 Floating Notification */}
+        {visible && (
+          <div className="notification-banner">
+            <p>{activeNote}</p>
+            <button
+              className="close-btn"
+              onClick={() => setVisible(false)}
+              aria-label="Dismiss notification"
+            >
+              ✖
+            </button>
+          </div>
+        )}
+
+        {/* Hero */}
         <div className="hub-hero fade-in-up">
           <h1>Welcome back, {userName} 👋</h1>
           <p>

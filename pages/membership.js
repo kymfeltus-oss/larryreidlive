@@ -17,7 +17,9 @@ export default function Membership() {
 
       <section className="plans">
         <h2>Membership Tiers</h2>
-        <p className="subtext">Choose your level of connection and mentorship.</p>
+        <p className="subtext">
+          Choose your level of connection and mentorship.
+        </p>
 
         <div className="plan-grid">
 
@@ -29,7 +31,7 @@ export default function Membership() {
               <li>Community board access</li>
               <li>Monthly mentorship recap</li>
             </ul>
-            <Link href="/login" className="btn primary btn-center small">Join</Link>
+            <Link href="/login" className="btn primary btn-center">Join</Link>
           </div>
 
           {/* Partner */}
@@ -41,7 +43,7 @@ export default function Membership() {
               <li>Partner Q&As</li>
               <li>Priority event access</li>
             </ul>
-            <Link href="/checkout-partner" className="btn primary btn-center small">Join</Link>
+            <Link href="/checkout-partner" className="btn primary btn-center">Join</Link>
           </div>
 
           {/* Inner Circle */}
@@ -53,7 +55,7 @@ export default function Membership() {
               <li>Quarterly retreats</li>
               <li>Priority support + early event access</li>
             </ul>
-            <Link href="/apply-innercircle" className="btn primary btn-center small">Apply</Link>
+            <Link href="/apply-innercircle" className="btn primary btn-center">Apply</Link>
           </div>
 
         </div>

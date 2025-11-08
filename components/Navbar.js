@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="nav-inner">
-        {/* Hamburger Menu */}
+        {/* Hamburger button */}
         <button
           className={`hamburger ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -17,7 +17,7 @@ export default function Navbar() {
           <span></span>
         </button>
 
-        {/* Menu Links */}
+        {/* Dropdown menu */}
         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
           <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link href="/member" onClick={() => setMenuOpen(false)}>Hub</Link>

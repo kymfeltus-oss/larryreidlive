@@ -2,7 +2,7 @@
    HOME PAGE — Dr. Larry Reid Live
    =============================== */
 
-/* ----- Top banner ----- */
+/* ----- Banner ----- */
 .top-banner {
   position: relative;
   width: 100%;
@@ -17,109 +17,150 @@
   display: block;
 }
 
-/* ----- Hero section ----- */
+/* ----- Hero Section ----- */
 .hero-section {
   position: relative;
+  height: calc(100vh - 150px);
   width: 100%;
-  height: calc(100vh - 150px);       /* fill the screen under the banner */
   display: grid;
-  place-items: center;                /* vertical + horizontal centering */
+  place-items: center;
   text-align: center;
   overflow: hidden;
-  isolation: isolate;                 /* prevents background bleed */
 }
+
 .hero-video {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   filter: brightness(0.5) saturate(110%);
   z-index: -2;
 }
+
 .overlay {
-  position: absolute; inset: 0;
-  background: radial-gradient( circle at 30% 50%,
-    rgba(26,46,74,.3) 0%, rgba(10,15,24,.9) 90% );
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(26, 46, 74, 0.3) 0%,
+    rgba(10, 15, 24, 0.9) 90%
+  );
   z-index: -1;
 }
+
+/* ----- Hero Content ----- */
 .hero-content {
-  max-width: 720px;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
   width: 100%;
-  margin: 0 auto;
-  padding: 0 16px;
-  display: flex; flex-direction: column; align-items: center;
+  padding: 0 1rem;
 }
 
-/* ----- Logo + tagline ----- */
+/* ----- Logo (larger + motion) ----- */
 .hero-logo {
-  width: 160px; height: auto; margin-bottom: 12px;
+  width: clamp(200px, 40vw, 260px);
+  height: auto;
+  margin-bottom: 1.2rem;
+  animation: wave 6s ease-in-out infinite alternate;
 }
-@keyframes fadeIn { from {opacity:0; transform:translateY(20px)} to {opacity:1; transform:none} }
-.hero-logo { animation: fadeIn 1s ease both; }
 
+@keyframes wave {
+  0% { transform: perspective(400px) rotateY(0deg) rotateX(0deg) scale(1); }
+  25% { transform: perspective(400px) rotateY(3deg) rotateX(2deg) scale(1.02); }
+  50% { transform: perspective(400px) rotateY(0deg) rotateX(0deg) scale(1); }
+  75% { transform: perspective(400px) rotateY(-3deg) rotateX(-2deg) scale(1.02); }
+  100% { transform: perspective(400px) rotateY(0deg) rotateX(0deg) scale(1); }
+}
+
+/* ----- Tagline ----- */
 .typewriter {
   font-size: 1.5rem;
-  line-height: 1.2;
-  height: 2rem;
   color: #ff3b3b;
-  margin-bottom: 22px;
-  animation: tvfade 2.5s infinite;
+  margin-bottom: 2rem;
+  animation: fade 2.5s infinite;
 }
-@keyframes tvfade { 0%{opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{opacity:0} }
+@keyframes fade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
 
-/* ----- CTAs: equal width, centered, no shifting ----- */
+/* ----- CTA Buttons (Centered) ----- */
 .cta-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
   width: 100%;
-  max-width: 380px;                  /* locks container so text animation won't push it */
+  max-width: 380px;
   margin: 0 auto;
-  display: grid; gap: 12px;
-  grid-template-columns: 1fr;        /* stack on mobile; we’ll widen on larger screens */
 }
+
 .btn {
-  display: inline-block;
-  width: 100%;                       /* identical width */
-  padding: 14px 18px;
-  border-radius: 18px;
+  flex: 1 1 45%;
+  min-width: 160px;
+  padding: 0.9rem 1.4rem;
+  border-radius: 1.2rem;
   font-weight: 800;
   text-transform: uppercase;
   text-decoration: none;
   text-align: center;
-  transition: transform .15s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
-.btn.primary {
-  background: linear-gradient(135deg,#4FC3F7,#0288D1);
-  color: #fff; border: none;
-}
-.btn.outline {
-  background: transparent;
-  color: #4FC3F7;
-  border: 2px solid #4FC3F7;
-}
-.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79,195,247,.28); }
 
-/* ----- Content sections below hero ----- */
+.btn.primary {
+  background: linear-gradient(135deg, #4FC3F7, #0288D1);
+  color: #fff;
+  border: none;
+}
+
+.btn.outline {
+  border: 2px solid #4FC3F7;
+  color: #4FC3F7;
+  background: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
+  background: linear-gradient(135deg, #03A9F4, #0288D1);
+  color: #fff;
+}
+
+/* ----- Content Sections Below Hero ----- */
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 64px 24px;
+  padding: 4rem 1.5rem;
   text-align: center;
 }
-.container h3 { font-size: 2rem; color:#fff; margin-bottom: 12px; }
-.container p  { color:#ccc; line-height: 1.6; margin: 0 auto 20px; max-width: 760px; }
 
-/* Ensure “View Memberships” and page CTAs are centered and consistent */
-.membership-teaser .btn.primary,
-.cta .btn.primary {
-  width: 220px;
-  margin: 20px auto 0;
+.container h3 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1rem;
 }
 
-/* ----- Responsive ----- */
-@media (min-width: 768px){
-  .cta-row { grid-template-columns: repeat(2,1fr); }   /* side by side on tablets/desktop */
+.container p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
-@media (max-width: 640px){
+
+/* ----- Responsive Adjustments ----- */
+@media (max-width: 640px) {
   .top-banner { height: 90px; }
   .hero-section { height: calc(100vh - 90px); }
-  .hero-logo { width: 120px; }
-  .typewriter { font-size: 1.2rem; height: 1.6rem; }
+  .hero-logo { width: clamp(160px, 60vw, 220px); }
+  .typewriter { font-size: 1.2rem; }
+  .cta-row { flex-direction: column; gap: 0.8rem; max-width: 280px; }
+  .btn { width: 100%; margin: 0 auto; }
 }

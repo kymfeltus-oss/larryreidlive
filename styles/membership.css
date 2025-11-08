@@ -1,25 +1,62 @@
-.membership-banner{margin-top:56px;width:100%;max-width:720px;margin-left:auto;margin-right:auto;overflow:hidden;border-radius:12px}
-.membership-banner-image{width:100%;height:auto;object-fit:cover;display:block}
+import Head from "next/head";
+import Link from "next/link";
 
-.plans{text-align:center;padding:1rem .8rem 5rem}
-.plans h2{font-size:1.2rem;color:#ff3b3b;font-weight:900;margin-bottom:.3rem}
-.subtext{font-size:.85rem;color:#aaa;margin-bottom:.8rem}
+export default function Membership() {
+  const tiers = [
+    {
+      name: "Basic LRL", price: "$0 / month",
+      perks: ["Community board access", "Monthly mentorship recap"],
+      href: "/login", cta: "Join"
+    },
+    {
+      name: "Partner LRL", price: "$25 / month",
+      perks: ["All Basic features", "Partner Q&As", "Priority event access"],
+      href: "/checkout-partner", cta: "Join"
+    },
+    {
+      name: "Prophets & Partners", price: "$55 / month",
+      perks: ["Exclusive livestreams & Q&A", "Prophecy & Testimony board", "Downloadable resources"],
+      href: "/checkout-prophets", cta: "Join"
+    },
+    {
+      name: "Inner Circle", price: "$99 / month",
+      perks: ["1-on-1 mentorship with Dr. Reid", "Quarterly retreats", "Priority support + early access"],
+      href: "/apply-innercircle", cta: "Apply"
+    }
+  ];
 
-.plan-grid{
-  display:grid;grid-template-columns:1fr;gap:.8rem;max-width:420px;margin:0 auto
+  return (
+    <>
+      <Head><title>Join the Movement — LRL</title></Head>
+
+      {/* Frozen Banner */}
+      <div className="membership-header">
+        <img
+          src="/assets/channels4_banner.jpg"
+          alt="Larry Reid Live Banner"
+          className="membership-header-image"
+        />
+        <div className="header-overlay">
+          <h1 className="header-title">Join the Movement</h1>
+        </div>
+      </div>
+
+      <section className="plans">
+        <p className="subtext">
+          Choose your level of connection and mentorship.
+        </p>
+
+        <div className="plan-grid">
+          {tiers.map((t,i)=>(
+            <div key={i} className={`plan-card`}>
+              <h3>{t.name}</h3>
+              <p className="price">{t.price}</p>
+              <ul>{t.perks.map((p,idx)=>(<li key={idx}>{p}</li>))}</ul>
+              <Link href={t.href} className="btn primary btn-center">{t.cta}</Link>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  );
 }
-.plan-card{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:12px;
-  padding:.9rem;
-  display:flex;flex-direction:column;align-items:center;text-align:center;
-  min-height: 270px;               /* equal height */
-}
-.plan-card.highlight{border-color:#4FC3F7}
-.plan-card.elite{border-color:#b71c1c}
-.plan-card h3{color:#ff3b3b;font-size:1rem;margin-bottom:.2rem}
-.price{font-size:1.15rem;font-weight:900;margin-bottom:.4rem}
-.plan-card ul{list-style:none;padding:0;margin:0 0 .7rem;color:#ccc;font-size:.85rem;line-height:1.35;text-align:left;width:100%;max-width:260px}
-.plan-card li::before{content:"• ";color:#4FC3F7}
-.btn-center{display:block;margin:0 auto;width:170px}

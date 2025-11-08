@@ -1,71 +1,44 @@
-// pages/patreon.js
 import Head from "next/head";
-import { useEffect, useState } from "react";
 
 export default function Patreon() {
-  // Mock data — replace with real Patreon API later
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const mockPosts = [
-      {
-        id: "1",
-        title: "Behind the Scenes: Upcoming Projects",
-        image:
-          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=60",
-        content:
-          "Dr. Reid shares exclusive insights on his upcoming live sessions and media partnerships. Patreon members get early access!",
-        url: "https://www.patreon.com/larryreidlive",
-      },
-      {
-        id: "2",
-        title: "Morning Inspiration Recap",
-        image:
-          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=60",
-        content:
-          "Catch the highlights and divine revelations from this morning's broadcast. Members get the full video archive inside Patreon.",
-        url: "https://www.patreon.com/larryreidlive",
-      },
-      {
-        id: "3",
-        title: "Special Announcement for Mentorship Circle",
-        image:
-          "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=900&q=60",
-        content:
-          "We’re expanding our mentorship program with new guest instructors and spiritual development workshops. Details inside Patreon.",
-        url: "https://www.patreon.com/larryreidlive",
-      },
-    ];
-    setPosts(mockPosts);
-  }, []);
+  const tiers = [
+    { name: "Supporter", price: "$5 / month", perks: ["Exclusive posts", "Behind the scenes"] },
+    { name: "Partner", price: "$25 / month", perks: ["All Supporter benefits", "Early access to events"] },
+    { name: "Inner Circle", price: "$55 / month", perks: ["Private Q&As", "Personal messages from Dr. Reid"] },
+  ];
 
   return (
     <>
-      <Head>
-        <title>Patreon Feed — Dr. Larry Reid Live</title>
-      </Head>
+      <Head><title>Support — LRL Patreon</title></Head>
+
+      <div className="patreon-header">
+        <img
+          src="/assets/channels4_banner.jpg"
+          alt="Larry Reid Live Banner"
+          className="patreon-header-image"
+        />
+        <div className="header-overlay">
+          <h1 className="header-title">Support LRL</h1>
+        </div>
+      </div>
 
       <section className="patreon-page">
-        <h1>Patreon Feed</h1>
-        <p>Exclusive updates and posts from Dr. Larry Reid’s Patreon community.</p>
+        <h2 className="section-title">Join on Patreon</h2>
+        <p className="subtext">Your support helps keep the message going worldwide.</p>
 
-        <div className="patreon-grid">
-          {posts.map((post) => (
-            <div className="patreon-card" key={post.id}>
-              <img
-                src={post.image}
-                alt={post.title}
-                className="patreon-img"
-              />
-              <h3>{post.title}</h3>
-              <p className="patreon-content">{post.content}</p>
+        <div className="plan-grid">
+          {tiers.map((t, i) => (
+            <div key={i} className="plan-card">
+              <h3>{t.name}</h3>
+              <p className="price">{t.price}</p>
+              <ul>{t.perks.map((p, idx) => <li key={idx}>{p}</li>)}</ul>
               <a
-                href={post.url}
+                href="https://patreon.com/LarryReidLive"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn primary"
+                className="btn patreon-btn"
               >
-                View on Patreon
+                Join Now
               </a>
             </div>
           ))}

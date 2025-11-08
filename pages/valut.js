@@ -4,9 +4,19 @@ export default function Vault() {
   return (
     <>
       <Head><title>The Vault — LRL</title></Head>
-      <section className="vault-page">
-        <h1>The Vault</h1>
-        <p>Archived teachings and exclusive media for LRL’s will appear here.</p>
+      <div className="page-header">
+        <img
+          src="/assets/channels4_banner.jpg"
+          alt="Vault Banner"
+          className="page-header-image"
+        />
+        <div className="header-overlay">
+          <h1 className="header-title">The Vault</h1>
+        </div>
+      </div>
+
+      <section className="mock-page">
+        <p>Archived teachings, exclusive video content, and messages will appear here.</p>
       </section>
     </>
   );

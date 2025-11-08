@@ -7,6 +7,7 @@ import "../styles/music.css";
 import "../styles/services.css";
 import "../styles/memberhub.css";
 import "../styles/patreon.css";
+import "../styles/partners.css";
 
 import Layout from "../components/Layout";
 

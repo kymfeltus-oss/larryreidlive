@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 export default function Music() {
-  // ===== Albums =====
   const albums = [
     {
       title: "Africa Is Rising",
@@ -17,7 +16,6 @@ export default function Music() {
     },
   ];
 
-  // ===== Singles =====
   const singles = [
     {
       title: "Overcomer",
@@ -32,52 +30,20 @@ export default function Music() {
       apple:
         "https://music.apple.com/us/album/god-dont-play-about-me-single/1753440124",
     },
-    {
-      title: "Y.A.T.A.N (You Ain’t Talking About Nothin)",
-      cover:
-        "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/97/29/01/97290171-55e6-80db-875b-00c7ca6e401e/859785686417_cover.jpg/592x592bb.webp",
-      apple:
-        "https://music.apple.com/us/album/y-a-t-a-n-you-aint-talking-about-nothin-single/1736925137",
-    },
-    {
-      title: "He Delivers (feat. Bishop Carlton Pearson)",
-      cover:
-        "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/42/8a/0a/428a0a18-cbec-610c-e7cd-e4bbe66394bb/859764785551_cover.jpg/592x592bb.webp",
-      apple:
-        "https://music.apple.com/us/album/he-delivers-single-feat-bishop-carlton-pearson-single/1639683803",
-    },
-    {
-      title: "A Dangerous Love",
-      cover:
-        "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/fb/fd/72/fbfd7208-c822-2cb0-3eee-90123755a2b4/859760155723_cover.jpg/592x592bb.webp",
-      apple:
-        "https://music.apple.com/us/album/a-dangerous-love-single/1610616054",
-    },
-    {
-      title: "The Blood",
-      cover:
-        "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/16/cf/29/16cf296a-12e8-07ba-8ed9-cacb89c7298a/859750537768_cover.jpg/592x592bb.webp",
-      apple: "https://music.apple.com/us/album/the-blood-single/1586974937",
-    },
-    {
-      title: "Black Magic",
-      cover:
-        "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/24/e1/39/24e13931-c3f8-d679-d033-1b495d957981/859742938405_cover.jpg/592x592bb.webp",
-      apple: "https://music.apple.com/us/album/black-magic-single/1535961311",
-    },
-    {
-      title: "Smile",
-      cover:
-        "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/f3/d5/13/f3d5133a-4ec2-7bb6-164b-dc4215c063a5/859731619988_cover.jpg/592x592bb.webp",
-      apple: "https://music.apple.com/us/album/smile-single/1457624561",
-    },
+  ];
+
+  const socials = [
+    { icon: "📘", name: "Facebook", link: "https://facebook.com/LarryReidLive" },
+    { icon: "📸", name: "Instagram", link: "https://instagram.com/LarryReidLive" },
+    { icon: "🐦", name: "X / Twitter", link: "https://twitter.com/LarryReidLive" },
+    { icon: "▶️", name: "YouTube", link: "https://youtube.com/@LarryReidLive" },
   ];
 
   return (
     <>
       <Head><title>Music — LRL</title></Head>
 
-      {/* Frozen banner at top */}
+      {/* Banner */}
       <div className="music-header">
         <img
           src="/assets/channels4_banner.jpg"
@@ -89,9 +55,7 @@ export default function Music() {
         </div>
       </div>
 
-      {/* Content below banner */}
       <section className="music-page">
-        {/* Albums */}
         <h2 className="section-title">Albums</h2>
         <div className="music-grid">
           {albums.map((a, i) => (
@@ -115,7 +79,6 @@ export default function Music() {
           ))}
         </div>
 
-        {/* Singles */}
         <h2 className="section-title">Singles</h2>
         <div className="music-grid">
           {singles.map((s, i) => (
@@ -137,6 +100,32 @@ export default function Music() {
               </a>
             </div>
           ))}
+        </div>
+
+        {/* Patreon + Socials */}
+        <div className="music-links">
+          <a
+            href="https://patreon.com/LarryReidLive"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn patreon-btn"
+          >
+            ❤️ Support on Patreon
+          </a>
+
+          <div className="social-grid">
+            {socials.map((s, i) => (
+              <a
+                key={i}
+                href={s.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <span className="social-icon">{s.icon}</span> {s.name}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </>

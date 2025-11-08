@@ -1,102 +1,81 @@
 /* ===============================
-   MEMBERSHIP PAGE — Dr. Larry Reid Live
+   JOIN THE MOVEMENT (Mobile First)
    =============================== */
 
-/* ----- Compact “Join the Movement” hero ----- */
-.membership-hero {
-  position: relative;
-  background: linear-gradient(180deg, rgba(10,15,24,.95), rgba(10,15,24,1));
-  min-height: 26vh;                   /* compact: removes big gap */
-  display: grid; place-items: center;
-  text-align: center;
-  padding: 24px 16px 12px;
+body, html { background:#0a0f18; color:#fff; margin:0; padding:0; }
+
+/* --- Banner --- */
+.membership-banner {
+  margin-top: 64px; /* space for navbar */
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  overflow: hidden;
 }
-.membership-hero .overlay { position:absolute; inset:0; background: rgba(10,15,24,.65); }
-.membership-hero .hero-content { position:relative; z-index:1; max-width:640px; }
-.membership-hero h1 {
-  font-size: clamp(1.7rem, 4.8vw, 2.3rem);
-  margin: 0 0 8px;
-  font-weight: 900; line-height: 1.1; text-transform: uppercase; color:#ff3b3b;
-}
-.membership-hero p {
-  font-size: 1rem; line-height: 1.45; color:#ccc; margin: 0 auto; max-width: 520px;
+.membership-banner-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }
 
-/* ----- Section heading ----- */
+/* --- Plans --- */
 .plans {
   text-align: center;
-  padding: 28px 16px 56px;            /* tighter top padding -> tiers become focal */
+  padding: 24px 16px 60px;
 }
 .plans h2 {
-  font-size: 1.9rem; color:#ff3b3b; margin: 0 0 6px; font-weight: 900;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ff3b3b;
+  margin-bottom: 6px;
 }
-.plans .subtext { color:#ccc; margin: 0 auto 22px; max-width: 640px; }
+.subtext {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
 
-/* ----- Uniform, non-overlapping tier cards ----- */
 .plan-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;                          /* space so shadows never overlap */
-  max-width: 1120px;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 700px;
   margin: 0 auto;
-  align-items: stretch;
 }
 .plan-card {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 14px;
-  padding: 22px 18px;
-  display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px;
   text-align: center;
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  box-shadow: 0 0 0 rgba(0,0,0,0);    /* reset any old glow */
 }
-.plan-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,0,0,.28); }
-.plan-card h3 { color:#ff3b3b; font-weight: 800; font-size:1.25rem; margin: 4px 0 8px; }
-.plan-card .price { color:#fff; font-size: 1.85rem; font-weight: 900; margin-bottom: 12px; }
+.plan-card.highlight { border-color: #4FC3F7; background: rgba(79,195,247,0.08); }
+.plan-card.elite { border-color: #b71c1c; }
 
-.plan-card ul {
-  list-style: none; padding: 0; margin: 0 0 18px;
-  color:#ccc; line-height: 1.55; width: 100%; max-width: 240px; text-align: left;
-}
-.plan-card li { margin-bottom: 8px; padding-left: 12px; position: relative; }
-.plan-card li::before { content: "•"; color:#ff3b3b; position:absolute; left:0; }
+.plan-card h3 { font-size:1.1rem; font-weight:800; color:#ff3b3b; margin:6px 0; }
+.price { font-size:1.4rem; font-weight:900; margin-bottom:10px; }
+.plan-card ul { list-style:none; padding:0; margin:0 0 14px; color:#ccc; font-size:0.9rem; line-height:1.5; }
+.plan-card li::before { content:"• "; color:#4FC3F7; }
 
-/* highlight versions (subtle; no glow overlap) */
-.plan-card.highlight { border-color: rgba(79,195,247,.7); background: rgba(79,195,247,.07); }
-.plan-card.elite     { border-color: #b71c1c; }
-
-/* ----- Buttons inside cards: perfectly centered & same width ----- */
 .btn {
-  display: inline-block;
-  width: 80%;
-  max-width: 260px;
-  margin: 8px auto 0;
-  padding: 12px 16px;
-  border-radius: 16px;
-  font-weight: 800; text-transform: uppercase; text-align: center;
-  transition: transform .15s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  display:inline-block;
+  padding:0.7rem 1rem;
+  border-radius:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  transition:all .2s;
 }
-.btn.primary { background: linear-gradient(135deg,#4FC3F7,#0288D1); color:#fff; border:none; }
-.btn.outline { background: transparent; color:#4FC3F7; border: 2px solid #4FC3F7; }
-.btn:hover   { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(79,195,247,.28); }
-
-/* ----- “Why Join” CTA at bottom ----- */
-.cta {
-  text-align: center;
-  padding: 48px 16px 64px;
+.btn-center { display:block; margin:0 auto; width:180px; }
+.btn.primary {
+  background:linear-gradient(135deg,#4FC3F7,#0288D1);
+  color:#fff; border:none;
 }
-.cta h2 { color:#ff3b3b; font-size: 1.9rem; font-weight: 900; margin: 0 0 12px; }
-.cta p  { color:#ccc; max-width: 720px; margin: 0 auto 18px; line-height: 1.6; }
-.cta .btn.primary { width: 220px; margin: 0 auto; }
+.btn:hover { transform:translateY(-2px); box-shadow:0 5px 12px rgba(79,195,247,.25); }
 
-/* ----- Mobile adjustments ----- */
-@media (max-width: 640px){
-  .membership-hero { min-height: 22vh; padding: 16px 12px 8px; }
-  .membership-hero h1 { font-size: 1.5rem; }
-  .membership-hero p  { font-size: .95rem; max-width: 460px; }
-  .plans { padding: 20px 12px 44px; }
-  .plan-grid { gap: 14px; }
-  .plan-card { padding: 18px 14px; }
-  .btn { width: 90%; }
+/* --- Tablet --- */
+@media (min-width:600px){
+  .plan-grid { grid-template-columns: repeat(2,1fr); }
 }

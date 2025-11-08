@@ -1,9 +1,11 @@
 .hero-section {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 60px);
   background: #0a0f18;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 .hero-video {
@@ -18,7 +20,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(26,46,74,0.3), rgba(10,15,24,0.9) 90%);
+  background: rgba(0, 0, 0, 0.35);
   z-index: -1;
 }
 .hero-content {
@@ -29,8 +31,8 @@
   align-items: center;
 }
 .hero-logo {
-  width: clamp(160px, 60vw, 220px);
-  animation: wave 8s ease-in-out infinite alternate;
+  width: clamp(160px, 60vw, 200px);
+  animation: wave 7s ease-in-out infinite alternate;
 }
 @keyframes wave {
   0%,100% { transform: perspective(400px) rotateY(0) rotateX(0); }
@@ -40,31 +42,28 @@
 .typewriter {
   color: #ff3b3b;
   font-size: 1rem;
-  margin: 0.7rem 0;
+  margin: 0.6rem 0;
 }
 .cta-row {
   display: flex;
   justify-content: center;
   gap: 0.6rem;
   flex-wrap: wrap;
-  width: 100%;
-  max-width: 280px;
+  margin-top: 0.3rem;
 }
 .btn {
-  padding: 0.6rem 0.8rem;
-  border-radius: 1rem;
-  font-weight: 700;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-weight: 700;
 }
 .btn.primary {
   background: linear-gradient(135deg, #4FC3F7, #0288D1);
   color: #fff;
-  border: none;
 }
 .btn.outline {
   border: 2px solid #4FC3F7;
   color: #4FC3F7;
   background: transparent;
 }
-.btn:hover { transform: translateY(-1px); }

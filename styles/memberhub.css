@@ -1,5 +1,5 @@
 /* ===============================
-   LRL MEMBERSHIP HUB — Interactive Mock
+   LRL MEMBERSHIP HUB — Motion + Glow Edition
    =============================== */
 
 .member-hub {
@@ -19,7 +19,6 @@
     rgba(255, 59, 59, 0.15),
     rgba(10, 15, 24, 0.95) 90%
   );
-  animation: fadeInUp 1s ease both;
 }
 
 .hub-hero h1 {
@@ -44,7 +43,6 @@
   gap: 1.5rem;
   margin: 3rem auto;
   max-width: 1100px;
-  animation: fadeInUp 1.2s ease both;
 }
 
 .hub-tile {
@@ -53,32 +51,19 @@
   border-radius: 1.2rem;
   padding: 2rem 1.2rem;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
   overflow: hidden;
-}
-
-.hub-tile::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(2, 136, 209, 0.1));
+  transform: translateY(30px);
   opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
-.hub-tile:hover::after {
+.hub-tile.visible,
+.hub-card.visible,
+.hub-cta.visible {
+  transform: translateY(0);
   opacity: 1;
-}
-
-.hub-tile:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 25px rgba(79, 195, 247, 0.3);
 }
 
 .hub-tile .emoji {
@@ -96,8 +81,16 @@
   color: #ccc;
   font-size: 0.95rem;
   line-height: 1.5;
-  margin: 0 auto;
-  max-width: 220px;
+}
+
+/* ===== HOVER EFFECT — GLOW ===== */
+.hub-tile.glow {
+  box-shadow: 0 0 0 rgba(79, 195, 247, 0);
+}
+
+.hub-tile.glow:hover {
+  box-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
+  transform: translateY(-6px) scale(1.03);
 }
 
 /* ===== FEATURED SECTIONS ===== */
@@ -117,12 +110,14 @@
   border-radius: 1rem;
   padding: 2rem 1.5rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  transform: translateY(30px);
+  opacity: 0;
 }
 
 .hub-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(255, 59, 59, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 59, 59, 0.25);
 }
 
 .hub-card h2 {
@@ -138,6 +133,37 @@
   margin-bottom: 1rem;
 }
 
+/* ===== CTA SECTION ===== */
+.hub-cta {
+  text-align: center;
+  padding: 4rem 1rem 5rem;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.hub-cta.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hub-cta h2 {
+  color: #ff3b3b;
+  font-weight: 900;
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.hub-cta p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== BUTTONS ===== */
 .btn {
   padding: 0.85rem 1.2rem;
   border-radius: 1rem;
@@ -162,41 +188,6 @@
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
-}
-
-/* ===== CTA SECTION ===== */
-.hub-cta {
-  text-align: center;
-  padding: 4rem 1rem 5rem;
-  animation: fadeInUp 1.5s ease both;
-}
-
-.hub-cta h2 {
-  color: #ff3b3b;
-  font-weight: 900;
-  font-size: 1.8rem;
-  margin-bottom: 0.6rem;
-}
-
-.hub-cta p {
-  color: #ccc;
-  margin-bottom: 1.5rem;
-  font-size: 1.05rem;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* ===== RESPONSIVE ===== */

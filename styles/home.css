@@ -1,4 +1,4 @@
-.hero {
+.hero-section {
   position: relative;
   height: 100vh;
   background: #0a0f18;
@@ -21,26 +21,41 @@
   background: radial-gradient(circle at 30% 50%, rgba(26,46,74,0.3), rgba(10,15,24,0.9) 90%);
   z-index: -1;
 }
-.hero-content { z-index: 2; color: #fff; }
-.hero-banner { width: clamp(180px, 80vw, 300px); border-radius: 12px; }
-.hero-text { color: #ff3b3b; margin: 1rem 0; }
+.hero-content {
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-logo {
+  width: clamp(160px, 60vw, 220px);
+  animation: wave 8s ease-in-out infinite alternate;
+}
+@keyframes wave {
+  0%,100% { transform: perspective(400px) rotateY(0) rotateX(0); }
+  25% { transform: perspective(400px) rotateY(3deg) rotateX(2deg); }
+  75% { transform: perspective(400px) rotateY(-3deg) rotateX(-2deg); }
+}
+.typewriter {
+  color: #ff3b3b;
+  font-size: 1rem;
+  margin: 0.7rem 0;
+}
 .cta-row {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  gap: 0.6rem;
   flex-wrap: wrap;
-  max-width: 320px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 280px;
 }
 .btn {
-  flex: 1 1 45%;
-  padding: 0.9rem 1.4rem;
-  border-radius: 1.2rem;
-  font-weight: 800;
+  padding: 0.6rem 0.8rem;
+  border-radius: 1rem;
+  font-weight: 700;
   text-transform: uppercase;
-  text-align: center;
-  transition: 0.2s;
+  font-size: 0.8rem;
 }
 .btn.primary {
   background: linear-gradient(135deg, #4FC3F7, #0288D1);
@@ -52,7 +67,4 @@
   color: #4FC3F7;
   background: transparent;
 }
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
-}
+.btn:hover { transform: translateY(-1px); }

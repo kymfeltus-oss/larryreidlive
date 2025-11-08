@@ -29,21 +29,30 @@ export default function Membership() {
     <>
       <Head><title>Join the Movement — LRL</title></Head>
 
-      <div className="membership-banner">
-        <img src="/assets/channels4_banner.jpg" alt="LRL Banner" className="membership-banner-image" />
+      {/* Frozen Banner */}
+      <div className="membership-header">
+        <img
+          src="/assets/channels4_banner.jpg"
+          alt="Larry Reid Live Banner"
+          className="membership-header-image"
+        />
+        <div className="header-overlay">
+          <h1 className="header-title">Join the Movement</h1>
+        </div>
       </div>
 
       <section className="plans">
-        <h2>Membership Tiers</h2>
-        <p className="subtext">Choose your level of connection and mentorship.</p>
+        <p className="subtext">
+          Choose your level of connection and mentorship.
+        </p>
 
         <div className="plan-grid">
           {tiers.map((t,i)=>(
-            <div key={i} className={`plan-card ${t.name.includes("Partner LRL")?"highlight":""} ${t.name.includes("Inner Circle")?"elite":""}`}>
+            <div key={i} className={`plan-card`}>
               <h3>{t.name}</h3>
               <p className="price">{t.price}</p>
               <ul>{t.perks.map((p,idx)=>(<li key={idx}>{p}</li>))}</ul>
-              <Link href={t.href} className="btn primary btn-center"> {t.cta} </Link>
+              <Link href={t.href} className="btn primary btn-center">{t.cta}</Link>
             </div>
           ))}
         </div>

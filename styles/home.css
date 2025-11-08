@@ -1,22 +1,6 @@
 /* ===============================
-   HOME PAGE — Dr. Larry Reid Live
+   HOME PAGE — Dr. Larry Reid Live (Centered Fix)
    =============================== */
-
-/* ===== TOP BANNER ===== */
-.top-banner {
-  position: relative;
-  width: 100%;
-  height: 150px;
-  overflow: hidden;
-  z-index: 5;
-}
-
-.banner-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
 /* ===== HERO SECTION ===== */
 .hero-section {
@@ -28,26 +12,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.5) saturate(110%);
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 30% 50%,
-    rgba(26, 46, 74, 0.3) 0%,
-    rgba(10, 15, 24, 0.9) 90%
-  );
 }
 
 .hero-content {
@@ -62,42 +26,7 @@
   justify-content: center;
 }
 
-/* ===== HERO LOGO ===== */
-.hero-logo {
-  width: 160px;
-  height: auto;
-  margin-bottom: 1rem;
-  animation: fadeIn 1.2s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== TAGLINE ===== */
-.typewriter {
-  font-size: 1.5rem;
-  height: 2rem;
-  color: #ff3b3b;
-  margin-bottom: 2rem;
-  animation: fade 2.5s infinite;
-}
-
-@keyframes fade {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* ===== CTA BUTTONS (Equal Size + Centered) ===== */
+/* ===== CTA BUTTONS FIX ===== */
 .cta-row {
   display: flex;
   justify-content: center;
@@ -105,23 +34,22 @@
   gap: 1rem;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 400px;            /* 🔒 sets a fixed width container */
-  margin: 0 auto;
+  max-width: 360px;       /* tighter container */
+  margin: 0 auto;         /* center container */
 }
 
 .btn {
-  flex: 1 1 45%;               /* ✅ makes both buttons take equal width */
-  min-width: 160px;            /* ensures small screens don’t shrink them unevenly */
+  flex: 1 1 45%;
+  min-width: 160px;
   padding: 0.9rem 1.4rem;
   border-radius: 1.2rem;
   font-weight: 800;
   text-transform: uppercase;
-  text-decoration: none;
   text-align: center;
+  text-decoration: none;
   transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-/* Blue Gradient Buttons */
 .btn.primary {
   background: linear-gradient(135deg, #4FC3F7, #0288D1);
   color: #fff;
@@ -134,56 +62,23 @@
   background: transparent;
 }
 
-/* Hover effect */
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
-  background: linear-gradient(135deg, #03A9F4, #0288D1);
-  color: #fff;
+/* Keep equal width even on mobile */
+.btn.primary,
+.btn.outline {
+  width: 100%;
+  margin: 0;
 }
 
-/* ===== SECTIONS ===== */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  text-align: center;
-}
-
-.container h3 {
-  font-size: 2rem;
-  color: #fff;
-  margin-bottom: 1rem;
-}
-
-.container p {
-  color: #ccc;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-/* Fix View Membership and CTA Buttons */
-.membership-teaser .btn.primary,
-.cta .btn.primary {
-  display: block;
-  margin: 1.5rem auto 0 auto;
-  text-align: center;
-  width: 220px;                /* ✅ locked width for consistent alignment */
-}
-
-/* ===== MOBILE ===== */
+/* Center for smaller screens */
 @media (max-width: 640px) {
-  .top-banner { height: 90px; }
-  .hero-section { height: calc(100vh - 90px); }
-  .hero-logo { width: 120px; }
-  .typewriter { font-size: 1.2rem; }
   .cta-row {
     flex-direction: column;
-    gap: 0.8rem;
+    align-items: center;
+    gap: 1rem;
     max-width: 280px;
   }
   .btn {
     width: 100%;
-    margin: 0 auto;
+    text-align: center;
   }
 }

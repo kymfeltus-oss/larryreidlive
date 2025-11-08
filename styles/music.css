@@ -125,4 +125,58 @@
   .music-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+} /* Patreon + Socials */
+.music-links {
+  text-align: center;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
+
+/* Patreon button */
+.patreon-btn {
+  background: linear-gradient(90deg, #ff424d, #ff7b7b);
+  color: #fff;
+  font-weight: 900;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(255, 66, 77, 0.4);
+}
+.patreon-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 66, 77, 0.6);
+}
+
+/* Social media links */
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  max-width: 300px;
+}
+.social-link {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.social-link:hover {
+  background: rgba(79, 195, 247, 0.25);
+}
+.social-icon {
+  font-size: 1.2rem;
+}
+

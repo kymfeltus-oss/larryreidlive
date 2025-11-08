@@ -1,11 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
-import "../styles/membership.css";
 
 export default function Membership() {
   return (
     <>
-      <Head><title>Join the Movement — Dr. Larry Reid Live</title></Head>
+      <Head><title>Join the Movement — LRL</title></Head>
 
       <div className="membership-banner">
         <img
@@ -24,7 +23,7 @@ export default function Membership() {
             <h3>Basic LRL</h3>
             <p className="price">$10 / month</p>
             <ul>
-              <li>Access to community board</li>
+              <li>Community board access</li>
               <li>Monthly mentorship recap</li>
             </ul>
             <Link href="#" className="btn primary btn-center">Join Now</Link>
@@ -35,7 +34,8 @@ export default function Membership() {
             <p className="price">$25 / month</p>
             <ul>
               <li>All Basic features</li>
-              <li>Exclusive partner Q&As</li>
+              <li>Partner Q&As</li>
+              <li>Priority event access</li>
             </ul>
             <Link href="#" className="btn primary btn-center">Join Now</Link>
           </div>
@@ -46,6 +46,7 @@ export default function Membership() {
             <ul>
               <li>All Partner features</li>
               <li>Direct mentorship circle</li>
+              <li>Annual live retreat</li>
             </ul>
             <Link href="#" className="btn primary btn-center">Join Now</Link>
           </div>

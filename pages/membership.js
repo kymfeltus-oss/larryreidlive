@@ -1,100 +1,70 @@
 // pages/membership.js
-import Link from "next/link";
 import Head from "next/head";
+import Link from "next/link";
+import "../styles/membership.css";
 
 export default function Membership() {
   return (
     <>
       <Head>
-        <title>Memberships — Dr. Larry Reid Live</title>
+        <title>Join the Movement — Dr. Larry Reid Live</title>
       </Head>
 
-      <section className="membership-hero">
-        <div className="overlay" />
-        <div className="hero-content">
-          <h1>Join the Movement</h1>
-          <p>
-            Become part of the Christ Consciousness mentorship community led by
-            <strong>  Dr. Larry Reid </strong>. Choose your tier and step into a
-            transformative experience.
-          </p>
-        </div>
-      </section>
+      {/* --- Banner --- */}
+      <div className="membership-banner">
+        <img
+          src="/assets/channels4_banner.jpg"
+          alt="Larry Reid Live Banner"
+          className="membership-banner-image"
+        />
+      </div>
 
-      <section className="plans container">
+      {/* --- Membership tiers only --- */}
+      <section className="plans">
         <h2>Membership Tiers</h2>
         <p className="subtext">
-          Select the level that fits your journey. Upgrade or cancel anytime.
+          Choose your level of access to mentorship, events, and exclusive content.
         </p>
 
         <div className="plan-grid">
-          {/* Free Tier */}
           <div className="plan-card">
-            <h3>Free Access</h3>
-            <p className="price">$0 / mo</p>
+            <h3>Basic LRL</h3>
+            <p className="price">$10 / month</p>
             <ul>
-              <li>Morning Devotions & Public Lives</li>
-              <li>Weekly Highlights & Newsletter</li>
+              <li>Access to community board</li>
+              <li>Monthly mentorship recap</li>
             </ul>
-            <Link href="/login" className="btn outline">
-              Get Started
+            <Link href="#" className="btn primary btn-center">
+              Join Now
             </Link>
           </div>
 
-          {/* Mentorship Circle */}
           <div className="plan-card highlight">
-            <h3>Mentorship Circle</h3>
-            <p className="price">$19.99 / mo</p>
+            <h3>Partner LRL</h3>
+            <p className="price">$25 / month</p>
             <ul>
-              <li>Christ Consciousness Lessons</li>
-              <li>Private Community Access</li>
-              <li>Journal Reflections & Progress Tracking</li>
+              <li>All Basic features</li>
+              <li>Exclusive partner Q&As</li>
+              <li>Priority event access</li>
             </ul>
-            <Link href="/api/checkout?plan=mentorship" className="btn primary">
+            <Link href="#" className="btn primary btn-center">
               Join Now
             </Link>
           </div>
 
-          {/* Prophets & Partners */}
-          <div className="plan-card">
-            <h3>Prophets & Partners</h3>
-            <p className="price">$49.99 / mo</p>
-            <ul>
-              <li>Exclusive Livestreams & Q&A</li>
-              <li>Prophecy & Testimony Board</li>
-              <li>Downloadable Resources</li>
-            </ul>
-            <Link href="/api/checkout?plan=partners" className="btn primary">
-              Join Now
-            </Link>
-          </div>
-
-          {/* Inner Circle */}
           <div className="plan-card elite">
-            <h3>Inner Circle</h3>
-            <p className="price">$99.99 / mo</p>
+            <h3>Elite LRL</h3>
+            <p className="price">$50 / month</p>
             <ul>
-              <li>1-on-1 Mentorship with Dr. Reid</li>
-              <li>Wealth & Health Intensives</li>
-              <li>Early Event Access & Priority Support</li>
+              <li>All Partner features</li>
+              <li>Direct mentorship circle</li>
+              <li>Annual live retreat</li>
             </ul>
-            <Link href="/api/checkout?plan=inner" className="btn outline">
-              Apply
+            <Link href="#" className="btn primary btn-center">
+              Join Now
             </Link>
           </div>
         </div>
-      </section>
-
-      <section className="cta container">
-        <h2>Why Join Now?</h2>
-        <p>
-          Gain spiritual insight, professional growth, and community support.
-          Dr. Larry Reid’s mentorship blends truth, laughter, and wisdom for
-          every aspect of your life.
-        </p>
-        <Link href="/login" className="btn primary">
-          Become a Member
-        </Link>
       </section>
     </>
   );

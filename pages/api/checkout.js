@@ -1,32 +1,25 @@
 // pages/api/checkout.js
-// Stripe checkout API route
-import { stripe } from '../../lib/stripe';
+import stripe from "../../lib/stripe";
 
 export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method not allowed" });
+  }
+
   try {
-    const { plan } = req.query;
-
-    const priceMap = {
-      mentorship: process.env.STRIPE_PRICE_ID_MENTORSHIP,
-      partners: process.env.STRIPE_PRICE_ID_PARTNERS,
-      inner: process.env.STRIPE_PRICE_ID_INNER,
-    };
-
-    if (!plan || !priceMap[plan]) {
-      return res.status(400).json({ error: 'Unknown plan' });
-    }
+    const { priceId } = req.body;
 
     const session = await stripe.checkout.sessions.create({
-      mode: 'subscription',
-      payment_method_types: ['card'],
-      line_items: [{ price: priceMap[plan], quantity: 1 }],
-      success_url: `${req.headers.origin}/portal?sub=success`,
-      cancel_url: `${req.headers.origin}/pricing?canceled=1`,
+      mode: "subscription",
+      payment_method_types: ["card"],
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: `${req.headers.origin}/success`,
+      cancel_url: `${req.headers.origin}/cancel`,
     });
 
-    res.status(200).json({ url: session.url });
+    res.status(200).json({ sessionUrl: session.url });
   } catch (error) {
-    console.error('Checkout error:', error.message);
+    console.error("Stripe checkout error:", error);
     res.status(500).json({ error: error.message });
   }
 }

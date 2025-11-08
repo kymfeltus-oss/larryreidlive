@@ -18,13 +18,9 @@ export default function Partners() {
     <>
       <Head><title>Advertisers & Partners — LRL</title></Head>
 
-      {/* Fixed banner */}
+      {/* Banner */}
       <div className="partners-header">
-        <img
-          src="/assets/channels4_banner.jpg"
-          alt="Larry Reid Live Banner"
-          className="partners-header-image"
-        />
+        <img src="/assets/channels4_banner.jpg" alt="LRL Banner" className="partners-header-image" />
         <div className="header-overlay">
           <h1 className="header-title">Advertisers & Partners</h1>
         </div>
@@ -35,8 +31,8 @@ export default function Partners() {
         <div className="overview">
           <p>
             Larry Reid Live (LRL) reaches a global audience with conversations that
-            educate, entertain, and enlighten. We partner with purpose-driven brands
-            that align with our mission and values.
+            educate, entertain, and enlighten. We collaborate with purpose-driven
+            brands that align with our mission and values.
           </p>
         </div>
 
@@ -51,7 +47,21 @@ export default function Partners() {
           ))}
         </div>
 
-        {/* Opportunities */}
+        {/* Analytics Chart */}
+        <div className="analytics">
+          <h2 className="section-title">Audience Analytics (Reach Trend)</h2>
+          <div className="chart">
+            <div className="bar" style={{"--h":"60%"}}></div>
+            <div className="bar" style={{"--h":"75%"}}></div>
+            <div className="bar" style={{"--h":"90%"}}></div>
+            <div className="bar" style={{"--h":"80%"}}></div>
+            <div className="bar" style={{"--h":"95%"}}></div>
+            <div className="bar" style={{"--h":"85%"}}></div>
+          </div>
+          <p className="chart-label">Jan – Jun 2025</p>
+        </div>
+
+        {/* Tiers */}
         <h2 className="section-title">Partnership Opportunities</h2>
         <div className="partner-tiers">
           {tiers.map((t, i) => (
@@ -62,15 +72,25 @@ export default function Partners() {
           ))}
         </div>
 
-        {/* Contact */}
+        {/* Contact + Media Kit */}
         <div className="partner-contact">
           <h3>Interested in Partnering?</h3>
-          <a
-            href="mailto:partnerships@larryreidlive.com"
-            className="btn partner-btn"
-          >
-            Submit Inquiry
-          </a>
+          <div className="partner-buttons">
+            <a
+              href="mailto:partnerships@larryreidlive.com"
+              className="btn partner-btn"
+            >
+              Submit Inquiry
+            </a>
+            <a
+              href="/assets/media-kit.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn kit-btn"
+            >
+              Download Media Kit 📄
+            </a>
+          </div>
         </div>
       </section>
     </>

@@ -6,7 +6,24 @@ export default function Home() {
 
   return (
     <>
-      <Head><title>LRL — Home</title></Head>
+      <Head>
+        <title>Larry Reid Live — Home</title>
+        <meta
+          name="description"
+          content="The Larry Reid Live App Prototype — Luxury tech experience with control, community, and consciousness."
+        />
+        <meta property="og:title" content="Larry Reid Live App Prototype" />
+        <meta
+          property="og:description"
+          content="Interactive prototype showing the new LRL app experience — designed for full creator control and data ownership."
+        />
+        <meta
+          property="og:image"
+          content="https://larry-reid-live.netlify.app/assets/og-image.png"
+        />
+        <meta property="og:url" content="https://larry-reid-live.netlify.app" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
 
       {/* Top banner */}
       <div className="top-banner">
@@ -17,7 +34,7 @@ export default function Home() {
         />
       </div>
 
-      {/* MP4 Hero Section */}
+      {/* Hero Section with video */}
       <section className="hero-section">
         <video
           className="hero-video"
@@ -26,10 +43,11 @@ export default function Home() {
           muted
           playsInline
           src="/assets/hero-bg.mp4"
+          type="video/mp4"
         />
         <div className="overlay"></div>
 
-        {/* Centered logo + buttons */}
+        {/* Centered content */}
         <div className="hero-content">
           <img
             src="/assets/logo.png"
@@ -53,9 +71,12 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Copyright Footer */}
+        {/* Footer */}
         <footer className="footer">
-          <p>© {currentYear} Larry Reid Live LLC — Educate. Entertain. Enlighten.</p>
+          <p>
+            © {currentYear} Larry Reid Live LLC — Educate. Entertain.
+            Enlighten.
+          </p>
         </footer>
       </section>
     </>

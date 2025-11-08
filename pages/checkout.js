@@ -4,20 +4,19 @@ import Link from "next/link";
 export default function CheckoutPartner() {
   return (
     <>
-      <Head><title>Partner LRL Checkout</title></Head>
-      <section className="mock-page">
-        <h1>Partner LRL Checkout</h1>
-        <p className="note">Mock checkout screen for $25/month subscription.</p>
+      <Head><title>Partner Checkout — LRL</title></Head>
+      <section className="mock-page narrow">
+        <h1>Checkout</h1>
+        <p className="note">Mock payment form for $25/month subscription.</p>
 
         <form className="mock-form">
-          <input type="text" placeholder="Full name" required />
-          <input type="email" placeholder="Email address" required />
+          <input type="text" placeholder="Name" required />
+          <input type="email" placeholder="Email" required />
           <input type="text" placeholder="Card Number" required />
-          <button type="submit" className="btn primary btn-center">Confirm Payment</button>
+          <button type="submit" className="btn primary btn-center small">Confirm</button>
         </form>
 
-        <p className="note">Payment gateway not active — demo only.</p>
-        <Link href="/membership" className="btn outline btn-center">Back to Membership</Link>
+        <Link href="/membership" className="btn outline btn-center small">Back</Link>
       </section>
     </>
   );

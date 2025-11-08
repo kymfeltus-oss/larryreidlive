@@ -11,7 +11,7 @@ export default function Membership() {
         "Monthly mentorship recap",
       ],
       href: "/login",
-      cta: "Join",
+      cta: "Join Free",
     },
     {
       name: "Partner LRL",
@@ -22,7 +22,7 @@ export default function Membership() {
         "Priority event access",
       ],
       href: "/checkout-partner",
-      cta: "Join",
+      cta: "Join Partner Level",
     },
     {
       name: "Prophets & Partners",
@@ -33,7 +33,7 @@ export default function Membership() {
         "Downloadable resources",
       ],
       href: "/checkout-prophets",
-      cta: "Join",
+      cta: "Join Prophets Level",
     },
     {
       name: "Inner Circle",
@@ -44,35 +44,34 @@ export default function Membership() {
         "Priority support + early access",
       ],
       href: "/apply-innercircle",
-      cta: "Apply",
+      cta: "Apply Now",
     },
   ];
 
   return (
     <>
-      <Head><title>Membership — LRL</title></Head>
+      <Head><title>Join the Movement — LRL</title></Head>
 
-      {/* Frozen Banner */}
-      <div className="membership-header">
-        <img
-          src="/assets/channels4_banner.jpg"
-          alt="Larry Reid Live Banner"
-          className="membership-header-image"
-        />
+      {/* Background Video */}
+      <div className="membership-bg">
+        <video autoPlay loop muted playsInline src="/assets/membership-bg.mp4" />
+        <div className="membership-overlay"></div>
       </div>
 
-      <section className="plans">
-        <p className="subtext">
+      {/* Page Content */}
+      <section className="membership-section">
+        <h1 className="membership-title">Join the Movement</h1>
+        <p className="membership-subtitle">
           Choose your level of connection and mentorship.
         </p>
 
-        <div className="plan-grid">
+        <div className="tier-grid">
           {tiers.map((t, i) => (
-            <div key={i} className="plan-card">
+            <div key={i} className="tier-card">
               <h3>{t.name}</h3>
               <p className="price">{t.price}</p>
               <ul>{t.perks.map((p, idx) => <li key={idx}>{p}</li>)}</ul>
-              <Link href={t.href} className="btn primary btn-center">
+              <Link href={t.href} className="btn tier-btn">
                 {t.cta}
               </Link>
             </div>

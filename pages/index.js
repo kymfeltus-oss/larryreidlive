@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
-import "../styles/home.css";
 
 export default function Home() {
   return (
     <>
       <Head><title>LRL — Home</title></Head>
+
       <div className="hero">
         <video
           className="hero-video"
@@ -23,9 +23,19 @@ export default function Home() {
             className="hero-banner"
           />
           <h2 className="hero-text">The Dr. Larry Reid Experience</h2>
+
           <div className="cta-row">
-            <Link href="/member" className="btn primary">Hub</Link>
-            <Link href="/membership" className="btn outline">Join</Link>
+            <a
+              href="https://www.youtube.com/@LarryReidLive/streams"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn primary"
+            >
+              Watch Live
+            </a>
+            <Link href="/membership" className="btn outline">
+              Join the Movement
+            </Link>
           </div>
         </div>
       </div>

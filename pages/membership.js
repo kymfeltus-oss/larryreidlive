@@ -1,31 +1,23 @@
-// pages/membership.js
 import Head from "next/head";
 import Link from "next/link";
 import "../styles/membership.css";
-import "../styles/[pagename].css";
 
 export default function Membership() {
   return (
     <>
-      <Head>
-        <title>Join the Movement — Dr. Larry Reid Live</title>
-      </Head>
+      <Head><title>Join the Movement — Dr. Larry Reid Live</title></Head>
 
-      {/* --- Banner --- */}
       <div className="membership-banner">
         <img
           src="/assets/channels4_banner.jpg"
-          alt="Larry Reid Live Banner"
+          alt="Larry Reid Live"
           className="membership-banner-image"
         />
       </div>
 
-      {/* --- Membership tiers only --- */}
       <section className="plans">
         <h2>Membership Tiers</h2>
-        <p className="subtext">
-          Choose your level of access to mentorship, events, and exclusive content.
-        </p>
+        <p className="subtext">Choose your level of connection and mentorship.</p>
 
         <div className="plan-grid">
           <div className="plan-card">
@@ -35,9 +27,7 @@ export default function Membership() {
               <li>Access to community board</li>
               <li>Monthly mentorship recap</li>
             </ul>
-            <Link href="#" className="btn primary btn-center">
-              Join Now
-            </Link>
+            <Link href="#" className="btn primary btn-center">Join Now</Link>
           </div>
 
           <div className="plan-card highlight">
@@ -46,11 +36,8 @@ export default function Membership() {
             <ul>
               <li>All Basic features</li>
               <li>Exclusive partner Q&As</li>
-              <li>Priority event access</li>
             </ul>
-            <Link href="#" className="btn primary btn-center">
-              Join Now
-            </Link>
+            <Link href="#" className="btn primary btn-center">Join Now</Link>
           </div>
 
           <div className="plan-card elite">
@@ -59,11 +46,8 @@ export default function Membership() {
             <ul>
               <li>All Partner features</li>
               <li>Direct mentorship circle</li>
-              <li>Annual live retreat</li>
             </ul>
-            <Link href="#" className="btn primary btn-center">
-              Join Now
-            </Link>
+            <Link href="#" className="btn primary btn-center">Join Now</Link>
           </div>
         </div>
       </section>

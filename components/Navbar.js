@@ -6,25 +6,27 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="navbar transparent">
+    <header className="navbar">
       <div className="nav-inner">
-        {/* Right-aligned hamburger */}
+        <img src="/assets/logo.png" alt="Larry Reid Live" className="brand-logo" />
+
+        {/* Hamburger */}
         <button
           className={`hamburger ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
+          aria-label="Toggle menu"
         >
           <span />
           <span />
           <span />
         </button>
 
-        {/* Slide-down menu (mobile-first) */}
+        {/* Links */}
         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
           <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/membership" onClick={() => setMenuOpen(false)}>Membership</Link>
+          <Link href="/membership" onClick={() => setMenuOpen(false)}>Join the Movement</Link>
           <Link href="/music" onClick={() => setMenuOpen(false)}>Music</Link>
+          <Link href="/member" onClick={() => setMenuOpen(false)}>LRL’s Hub</Link>
           <a
             href="https://www.youtube.com/@LarryReidLive/streams"
             target="_blank"
@@ -33,7 +35,6 @@ export default function Navbar() {
           >
             Watch Live
           </a>
-          <Link href="/login" className="btn small" onClick={() => setMenuOpen(false)}>Login</Link>
         </nav>
       </div>
     </header>

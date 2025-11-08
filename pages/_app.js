@@ -9,6 +9,7 @@ import "../styles/memberhub.css";
 import "../styles/patreon.css";
 import "../styles/partners.css";
 import "../styles/partners.css";
+import "../styles/membership.css";
 import Layout from "../components/Layout";
 
 export default function App({ Component, pageProps }) {

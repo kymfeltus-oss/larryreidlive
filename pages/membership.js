@@ -26,12 +26,12 @@ export default function Membership() {
           {/* Basic */}
           <div className="plan-card">
             <h3>Basic LRL</h3>
-            <p className="price">$10 / month</p>
+            <p className="price">$0 / month</p>
             <ul>
               <li>Community board access</li>
               <li>Monthly mentorship recap</li>
             </ul>
-            <Link href="#" className="btn primary btn-center">Join Now</Link>
+            <Link href="/login" className="btn primary btn-center">Join Now</Link>
           </div>
 
           {/* Partner */}
@@ -43,7 +43,7 @@ export default function Membership() {
               <li>Partner Q&As</li>
               <li>Priority event access</li>
             </ul>
-            <Link href="#" className="btn primary btn-center">Join Now</Link>
+            <Link href="/checkout-partner" className="btn primary btn-center">Join Now</Link>
           </div>
 
           {/* Inner Circle */}
@@ -55,7 +55,7 @@ export default function Membership() {
               <li>Exclusive quarterly retreats</li>
               <li>Priority support and early event access</li>
             </ul>
-            <Link href="#" className="btn primary btn-center">Apply Now</Link>
+            <Link href="/apply-innercircle" className="btn primary btn-center">Apply Now</Link>
           </div>
 
         </div>

@@ -1,14 +1,9 @@
-/* ===============================
-   LRL — Music Page (Mobile First)
-   =============================== */
-
-/* Frozen banner under navbar */
 .music-header {
   position: fixed;
-  top: 56px; /* below top navbar */
+  top: 56px;
   left: 0;
   right: 0;
-  height: 140px;
+  height: 100px;
   overflow: hidden;
   z-index: 10;
 }
@@ -32,18 +27,14 @@
   color: #fff;
   text-transform: uppercase;
 }
-
-/* Content below banner */
 .music-page {
-  padding-top: 215px; /* space for fixed banner */
+  padding-top: 170px;
   padding-bottom: 5rem;
   background: #0a0f18;
   min-height: 100vh;
   color: #fff;
   text-align: center;
 }
-
-/* Section headers */
 .section-title {
   font-size: 1.1rem;
   font-weight: 900;
@@ -52,131 +43,84 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-/* Grid of music cards */
 .music-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.8rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
   max-width: 420px;
-  margin: 0 auto 1.2rem;
-  padding: 0 0.8rem;
+  margin: 0 auto 1rem;
+  padding: 0 0.6rem;
 }
-
 .music-card {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 14px;
+  border-radius: 12px;
   backdrop-filter: blur(10px);
-  padding: 0.8rem;
-  box-shadow: 0 3px 10px rgba(79,195,247,0.2);
+  padding: 0.6rem;
   text-align: center;
 }
-
 .cover {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 0.4rem;
 }
-
 .music-card h3 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin: 0.2rem 0 0.6rem;
+  font-size: 0.8rem;
+  margin: 0 0 0.4rem;
 }
-
-/* Apple Music brand button */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  padding: 0.6rem 1rem;
-  border-radius: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.7rem;
   text-decoration: none;
 }
-
 .apple-btn {
-  background: linear-gradient(135deg, #FA243C, #FB5A8E); /* Apple Music brand */
+  background: linear-gradient(135deg, #FA243C, #FB5A8E);
   color: #fff;
-  border: none;
 }
+.icon-apple { width: 14px; height: 14px; }
 
-.apple-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(250, 36, 60, 0.45);
-}
-
-.icon-apple {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  filter: none; /* keep real colors */
-}
-
-/* Tablets */
-@media (min-width: 600px) {
-  .music-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-} /* Patreon + Socials */
+/* Patreon + Socials */
 .music-links {
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
 }
-
-/* Patreon button */
 .patreon-btn {
   background: linear-gradient(90deg, #ff424d, #ff7b7b);
   color: #fff;
   font-weight: 900;
-  padding: 0.7rem 1.4rem;
+  padding: 0.6rem 1rem;
   border-radius: 10px;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(255, 66, 77, 0.4);
+  box-shadow: 0 3px 10px rgba(255, 66, 77, 0.4);
 }
-.patreon-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(255, 66, 77, 0.6);
-}
-
-/* Social media links */
 .social-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.6rem;
+  gap: 0.5rem;
   max-width: 300px;
 }
 .social-link {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 8px;
   color: #fff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
+  font-size: 0.75rem;
+  padding: 0.5rem;
   text-decoration: none;
-  transition: background 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
 }
-.social-link:hover {
-  background: rgba(79, 195, 247, 0.25);
-}
-.social-icon {
-  font-size: 1.2rem;
-}
-

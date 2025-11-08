@@ -1,7 +1,128 @@
-.music-page{padding:72px .8rem 80px;max-width:420px;margin:0 auto;text-align:center}
-.music-page h1{font-size:1.2rem;font-weight:900;color:#4FC3F7;margin-bottom:.6rem}
-.music-list{display:flex;flex-direction:column;gap:.8rem}
-.music-card{display:flex;gap:.7rem;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:.6rem;text-decoration:none}
-.music-card img{width:64px;height:64px;border-radius:8px;object-fit:cover}
-.music-meta h3{font-size:.95rem;margin:.1rem 0;color:#fff;text-align:left}
-.tag{display:inline-block;margin-top:.2rem;font-size:.75rem;color:#4FC3F7}
+/* ===============================
+   LRL — Music Page (Mobile First)
+   =============================== */
+
+/* Frozen banner under navbar */
+.music-header {
+  position: fixed;
+  top: 56px; /* below top navbar */
+  left: 0;
+  right: 0;
+  height: 140px;
+  overflow: hidden;
+  z-index: 10;
+}
+.music-header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+.header-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(10,15,24,0.35);
+}
+.header-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Content below banner */
+.music-page {
+  padding-top: 215px; /* space for fixed banner */
+  padding-bottom: 5rem;
+  background: #0a0f18;
+  min-height: 100vh;
+  color: #fff;
+  text-align: center;
+}
+
+/* Section headers */
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin: 0 0 0.6rem;
+  background: linear-gradient(90deg, #4FC3F7, #0288D1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid of music cards */
+.music-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  max-width: 420px;
+  margin: 0 auto 1.2rem;
+  padding: 0 0.8rem;
+}
+
+.music-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  padding: 0.8rem;
+  box-shadow: 0 3px 10px rgba(79,195,247,0.2);
+  text-align: center;
+}
+
+.cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.music-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0.2rem 0 0.6rem;
+}
+
+/* Apple Music brand button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.apple-btn {
+  background: linear-gradient(135deg, #FA243C, #FB5A8E); /* Apple Music brand */
+  color: #fff;
+  border: none;
+}
+
+.apple-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(250, 36, 60, 0.45);
+}
+
+.icon-apple {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  filter: none; /* keep real colors */
+}
+
+/* Tablets */
+@media (min-width: 600px) {
+  .music-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

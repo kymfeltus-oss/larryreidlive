@@ -2,6 +2,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import "../styles/[pagename].css";
+
 
 export default function Member() {
   const crowdcastUrl = process.env.NEXT_PUBLIC_CROWDCAST_URL || "";

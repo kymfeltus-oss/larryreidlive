@@ -1,51 +1,88 @@
-.hero {
-  position: relative;
-  height: 100vh;
+/* ===============================
+   LRL MEMBER HUB — Mobile App Layout
+   =============================== */
+
+/* --- Base container --- */
+.member-hub {
   background: #0a0f18;
-  display: grid;
-  place-items: center;
-  text-align: center;
-}
-.hero-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.6);
-  z-index: -2;
-}
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(26,46,74,0.3), rgba(10,15,24,0.9) 90%);
-  z-index: -1;
-}
-.hero-content { z-index: 2; color: #fff; }
-.hero-banner { width: clamp(180px, 80vw, 300px); border-radius: 12px; }
-.hero-text { color: #ff3b3b; margin: 1rem 0; }
-.cta-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  max-width: 320px;
-  margin: 0 auto;
-}
-.btn {
-  flex: 1 1 45%;
-  padding: 0.9rem 1.4rem;
-  border-radius: 1.2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  text-align: center;
-  transition: 0.2s;
-}
-.btn.primary {
-  background: linear-gradient(135deg, #4FC3F7, #0288D1);
   color: #fff;
-  border: none;
+  min-height: 100vh;
+  padding-top: 80px; /* gives room for top navbar */
+  overflow-x: hidden;
+}
+
+/* --- Header Section --- */
+.hub-header {
+  text-align: center;
+  margin: 16px auto 8px;
+  padding: 0 12px;
+}
+.hub-header h1 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #4FC3F7, #0288D1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 4px;
+}
+.hub-header p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin: 0 auto;
+  max-width: 480px;
+  line-height: 1.4;
+}
+
+/* --- Dashboard Grid --- */
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+.hub-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 14px 0 28px;
+}
+.tile {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(79, 195, 247, 0.25);
+}
+.tile h3 {
+  font-size: 1rem;
+  margin: 4px 0 4px;
+  font-weight: 700;
+}
+.tile p {
+  font-size: 0.85rem;
+  color: #ccc;
+  margin: 0 0 10px;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-center {
+  display: block;
+  margin: 0 auto;
+  width: 180px;
 }
 .btn.outline {
   border: 2px solid #4FC3F7;
@@ -54,5 +91,95 @@
 }
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
+  box-shadow: 0 5px 12px rgba(79, 195, 247, 0.25);
+}
+
+/* --- Vault Page / Video Grid --- */
+.vault-page {
+  text-align: center;
+  padding: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.vault-page h1 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #4FC3F7;
+  margin-bottom: 0.4rem;
+}
+.vault-page p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.video-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.video-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.video-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4FC3F7;
+  margin: 0.3rem 0;
+}
+.video-card p {
+  font-size: 0.85rem;
+  color: #ccc;
+  margin: 0;
+}
+
+/* --- Mock Inner Pages --- */
+.mock-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+.mock-page h1 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #4FC3F7;
+  margin-bottom: 0.5rem;
+}
+.mock-page p {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* --- Responsive --- */
+@media (min-width: 600px) {
+  .hub-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .vault-page h1 {
+    font-size: 1.6rem;
+  }
+  .tile h3 {
+    font-size: 1.1rem;
+  }
 }

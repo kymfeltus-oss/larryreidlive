@@ -84,43 +84,9 @@
 .apple-btn {
   background: linear-gradient(135deg, #FA243C, #FB5A8E);
   color: #fff;
+  border: none;
 }
-.icon-apple { width: 14px; height: 14px; }
-
-/* Patreon + Socials */
-.music-links {
-  text-align: center;
-  margin-top: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-.patreon-btn {
-  background: linear-gradient(90deg, #ff424d, #ff7b7b);
-  color: #fff;
-  font-weight: 900;
-  padding: 0.6rem 1rem;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 3px 10px rgba(255, 66, 77, 0.4);
-}
-.social-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  max-width: 300px;
-}
-.social-link {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
-  color: #fff;
-  font-size: 0.75rem;
-  padding: 0.5rem;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.3rem;
+.icon-apple {
+  width: 14px;
+  height: 14px;
 }

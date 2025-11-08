@@ -1,198 +1,66 @@
 /* ===============================
-   LRL MEMBERSHIP HUB — Motion + Glow Edition
+   NOTIFICATION SYSTEM — Top Banner
    =============================== */
 
-.member-hub {
-  background: #0a0f18;
-  color: #fff;
-  min-height: 100vh;
-  overflow-x: hidden;
-  font-family: "Open Sans", Arial, sans-serif;
-}
-
-/* ===== HERO ===== */
-.hub-hero {
-  text-align: center;
-  padding: 4rem 1rem 2.5rem;
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 59, 59, 0.15),
-    rgba(10, 15, 24, 0.95) 90%
-  );
-}
-
-.hub-hero h1 {
-  font-size: clamp(1.9rem, 5vw, 2.6rem);
-  color: #ff3b3b;
-  font-weight: 900;
-  margin-bottom: 0.4rem;
-}
-
-.hub-hero p {
-  color: #ccc;
-  font-size: 1.05rem;
-  max-width: 650px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* ===== GRID (Quick Access Tiles) ===== */
-.hub-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin: 3rem auto;
-  max-width: 1100px;
-}
-
-.hub-tile {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.2rem;
-  padding: 2rem 1.2rem;
-  text-align: center;
-  transition: all 0.4s ease;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transform: translateY(30px);
-  opacity: 0;
-}
-
-.hub-tile.visible,
-.hub-card.visible,
-.hub-cta.visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.hub-tile .emoji {
-  font-size: 2rem;
-  margin-bottom: 0.7rem;
-}
-
-.hub-tile h3 {
-  color: #4FC3F7;
-  font-weight: 800;
-  margin-bottom: 0.4rem;
-}
-
-.hub-tile p {
-  color: #ccc;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* ===== HOVER EFFECT — GLOW ===== */
-.hub-tile.glow {
-  box-shadow: 0 0 0 rgba(79, 195, 247, 0);
-}
-
-.hub-tile.glow:hover {
-  box-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
-  transform: translateY(-6px) scale(1.03);
-}
-
-/* ===== FEATURED SECTIONS ===== */
-.hub-sections {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hub-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
-  transform: translateY(30px);
-  opacity: 0;
-}
-
-.hub-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(255, 59, 59, 0.25);
-}
-
-.hub-card h2 {
-  color: #ff3b3b;
-  font-size: 1.3rem;
-  font-weight: 900;
-  margin-bottom: 0.8rem;
-}
-
-.hub-card p {
-  color: #ccc;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-/* ===== CTA SECTION ===== */
-.hub-cta {
-  text-align: center;
-  padding: 4rem 1rem 5rem;
-  transform: translateY(30px);
-  opacity: 0;
-  transition: all 0.6s ease;
-}
-
-.hub-cta.visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.hub-cta h2 {
-  color: #ff3b3b;
-  font-weight: 900;
-  font-size: 1.8rem;
-  margin-bottom: 0.6rem;
-}
-
-.hub-cta p {
-  color: #ccc;
-  margin-bottom: 1.5rem;
-  font-size: 1.05rem;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ===== BUTTONS ===== */
-.btn {
-  padding: 0.85rem 1.2rem;
-  border-radius: 1rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  transition: transform 0.15s ease, box-shadow 0.3s ease;
-}
-
-.btn.primary {
+.notification-banner {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  left: auto;
   background: linear-gradient(135deg, #4FC3F7, #0288D1);
   color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 200;
+  animation: slideDown 0.6s ease forwards;
+  max-width: 360px;
+  min-width: 300px;
 }
 
-.btn.outline {
-  border: 2px solid #4FC3F7;
-  color: #4FC3F7;
-  background: transparent;
+.notification-banner p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: left;
+  line-height: 1.4;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 0.8rem;
+  transition: transform 0.2s ease;
 }
 
-/* ===== RESPONSIVE ===== */
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Slide-in animation */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile position */
 @media (max-width: 640px) {
-  .hub-hero { padding: 3rem 1rem; }
-  .hub-tile { padding: 1.5rem; }
-  .hub-card { padding: 1.5rem; }
+  .notification-banner {
+    right: 50%;
+    transform: translateX(50%);
+    top: 0.5rem;
+    max-width: 90%;
+  }
 }

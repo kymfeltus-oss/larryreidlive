@@ -1,59 +1,86 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Member() {
-  const [showLive, setShowLive] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const hour = new Date().getHours();
-    setShowLive(hour >= 10 && hour <= 22); // demo “live” window
-  }, []);
+  const kpis = [
+    { label: "Members", value: "2.5K", icon: "👥" },
+    { label: "Messages", value: "89", icon: "💬" },
+    { label: "Upcoming Events", value: "3", icon: "📅" },
+    { label: "Unread Alerts", value: "5", icon: "🔔" },
+  ];
 
-  const tiles = [
-    { title: "The Vault", desc: "Video archive & teachings", href: "/vault" },
-    { title: "Messages", desc: "Direct updates from Dr. Reid", href: "/messages" },
-    { title: "Community", desc: "Connect with other LRL’s", href: "/community" },
-    { title: "Events", desc: "Mentorship sessions & gatherings", href: "/events" },
+  const alerts = [
+    { msg: "New message from Dr. Reid", time: "2 hrs ago" },
+    { msg: "Community forum updated", time: "5 hrs ago" },
+    { msg: "Reminder: Partner Q&A tomorrow", time: "1 day ago" },
+  ];
+
+  const links = [
+    { name: "The Vault", href: "/vault" },
+    { name: "Messages", href: "/messages" },
+    { name: "Community", href: "/community" },
+    { name: "Events", href: "/events" },
+    { name: "Services", href: "/services" },
+    { name: "Music", href: "/music" },
   ];
 
   return (
     <>
-      <Head><title>LRL’s Hub</title></Head>
-      <section className="member-hub">
+      <Head><title>LRL Hub</title></Head>
 
-        {showLive ? (
-          <div className="live-banner fade-in">
-            <div className="live-header">
-              <span className="live-dot" /> <strong>We’re Live Now!</strong>
-            </div>
-            <iframe
-              src="https://www.youtube.com/embed/live_stream?channel=UCXXXXXXXXXXXXXXXX"
-              title="LRL Live"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            ></iframe>
-          </div>
-        ) : (
-          <div className="offline-banner fade-in">
-            <img
-              src="/assets/channels4_banner.jpg"
-              alt="Larry Reid Live Banner"
-              className="offline-banner-image"
-            />
-            <div className="header-overlay">
-              <h1 className="header-title">Welcome to The Hub</h1>
-            </div>
-          </div>
-        )}
+      <section className="hub-page">
+        {/* Slide-out menu */}
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          ☰
+        </button>
 
-        <div className="hub-grid container fade-in">
-          {tiles.map(({ title, desc, href }, i) => (
-            <Link href={href} key={i} className="tile">
-              <h3>{title}</h3>
-              <p>{desc}</p>
-              <span className="btn outline btn-center">Open</span>
+        <aside className={`side-menu ${menuOpen ? "open" : ""}`}>
+          <h3 className="menu-title">Navigation</h3>
+          {links.map((l, i) => (
+            <Link key={i} href={l.href} onClick={() => setMenuOpen(false)}>
+              {l.name}
             </Link>
+          ))}
+        </aside>
+
+        <div className={`overlay-bg ${menuOpen ? "show" : ""}`} onClick={() => setMenuOpen(false)}></div>
+
+        {/* Header banner */}
+        <div className="hub-banner">
+          <img
+            src="/assets/channels4_banner.jpg"
+            alt="Larry Reid Live Banner"
+            className="hub-banner-image"
+          />
+          <div className="header-overlay">
+            <h1 className="header-title">The LRL Hub</h1>
+          </div>
+        </div>
+
+        {/* KPI Section */}
+        <div className="kpi-grid">
+          {kpis.map((k, i) => (
+            <div key={i} className="kpi-card">
+              <span className="kpi-icon">{k.icon}</span>
+              <div className="kpi-text">
+                <p className="kpi-value">{k.value}</p>
+                <p className="kpi-label">{k.label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Alerts */}
+        <div className="alerts-section">
+          <h3>Alerts & Notifications</h3>
+          {alerts.map((a, i) => (
+            <div key={i} className="alert-card">
+              <p>{a.msg}</p>
+              <span>{a.time}</span>
+            </div>
           ))}
         </div>
       </section>

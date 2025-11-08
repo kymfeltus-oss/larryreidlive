@@ -1,7 +1,5 @@
-// pages/member.js
 import Head from "next/head";
 import Link from "next/link";
-import "../styles/memberhub.css";
 
 export default function Member() {
   const tiles = [

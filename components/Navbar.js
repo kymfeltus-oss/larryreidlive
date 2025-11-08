@@ -2,28 +2,25 @@ import { useState } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+  const [open, setOpen] = useState(false);
   return (
     <header className="navbar">
       <div className="nav-inner">
-        {/* Hamburger */}
         <button
-          className={`hamburger ${menuOpen ? "active" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}
+          className={`hamburger ${open ? "active" : ""}`}
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
 
-        {/* Slide-down Menu */}
-        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/member" onClick={() => setMenuOpen(false)}>Hub</Link>
-          <Link href="/music" onClick={() => setMenuOpen(false)}>Music</Link>
-          <Link href="/membership" onClick={() => setMenuOpen(false)}>Join</Link>
-          <Link href="/services" onClick={() => setMenuOpen(false)}>Services</Link>
+        <nav className={`nav-links ${open ? "open" : ""}`}>
+          <Link href="/" onClick={() => setOpen(false)}>Home</Link>
+          <Link href="/member" onClick={() => setOpen(false)}>Hub</Link>
+          <Link href="/music" onClick={() => setOpen(false)}>Music</Link>
+          <Link href="/services" onClick={() => setOpen(false)}>Services</Link>
+          <Link href="/membership" onClick={() => setOpen(false)}>Join</Link>
+          <Link href="/login" onClick={() => setOpen(false)}>Login</Link>
         </nav>
       </div>
     </header>

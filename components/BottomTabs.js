@@ -2,16 +2,18 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function BottomTabs() {
-  const r = useRouter();
-  const a = (p) => (r.pathname === p ? "active" : "");
+  const router = useRouter();
+
+  // Function to highlight active link
+  const isActive = (path) => (router.pathname === path ? "active" : "");
+
   return (
-    <footer className="mobile-tabs">
-      <Link href="/" className={a("/")}>🏠</Link>
-      <Link href="/member" className={a("/member")}>📱</Link>
-      <Link href="/music" className={a("/music")}>🎵</Link>
-      <Link href="/membership" className={a("/membership")}>🎟️</Link>
-      <Link href="/services" className={a("/services")}>💼</Link>
-    <Link href="/partners" className={active("/partners")}>🤝</Link>
-    </footer>
+    <nav className="bottom-tabs">
+      <Link href="/" className={isActive("/")}>🏠</Link>
+      <Link href="/music" className={isActive("/music")}>🎵</Link>
+      <Link href="/membership" className={isActive("/membership")}>🌟</Link>
+      <Link href="/login" className={isActive("/login")}>📱</Link>
+      <Link href="/partners" className={isActive("/partners")}>🤝</Link>
+    </nav>
   );
 }

@@ -1,19 +1,24 @@
-// pages/checkout.js
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import Head from "next/head";
+import Link from "next/link";
 
-export default function Checkout() {
-  const router = useRouter();
-
-  useEffect(() => {
-    // Redirect user back to pricing
-    router.replace('/pricing');
-  }, [router]);
-
+export default function CheckoutPartner() {
   return (
-    <div className="container" style={{ textAlign: 'center', padding: '4rem 1rem' }}>
-      <h2>Processing Checkout...</h2>
-      <p>You’ll be redirected shortly. If nothing happens, <a href="/pricing">click here</a>.</p>
-    </div>
+    <>
+      <Head><title>Partner LRL Checkout</title></Head>
+      <section className="mock-page">
+        <h1>Partner LRL Checkout</h1>
+        <p className="note">Mock checkout screen for $25/month subscription.</p>
+
+        <form className="mock-form">
+          <input type="text" placeholder="Full name" required />
+          <input type="email" placeholder="Email address" required />
+          <input type="text" placeholder="Card Number" required />
+          <button type="submit" className="btn primary btn-center">Confirm Payment</button>
+        </form>
+
+        <p className="note">Payment gateway not active — demo only.</p>
+        <Link href="/membership" className="btn outline btn-center">Back to Membership</Link>
+      </section>
+    </>
   );
 }

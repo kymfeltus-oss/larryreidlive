@@ -6,7 +6,6 @@ export default function Home() {
   return (
     <>
       <Head><title>LRL — Home</title></Head>
-
       <div className="hero">
         <video
           className="hero-video"
@@ -17,7 +16,6 @@ export default function Home() {
           src="/assets/hero-bg.mp4"
         />
         <div className="overlay" />
-
         <div className="hero-content">
           <img
             src="/assets/channels4_banner.jpg"
@@ -25,19 +23,9 @@ export default function Home() {
             className="hero-banner"
           />
           <h2 className="hero-text">The Dr. Larry Reid Experience</h2>
-
           <div className="cta-row">
-            <a
-              href="https://www.youtube.com/@LarryReidLive/streams"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn primary"
-            >
-              Watch Live
-            </a>
-            <Link href="/membership" className="btn outline">
-              Join the Movement
-            </Link>
+            <Link href="/member" className="btn primary">Hub</Link>
+            <Link href="/membership" className="btn outline">Join</Link>
           </div>
         </div>
       </div>

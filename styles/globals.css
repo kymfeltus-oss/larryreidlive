@@ -69,5 +69,8 @@ section {
     background-color: #0a0f18;
     padding-bottom: env(safe-area-inset-bottom);
   }
+} body, .hero-section, .membership-hero {
+  background-color: #0a0f18;
 }
+
 

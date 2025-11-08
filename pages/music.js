@@ -43,7 +43,6 @@ export default function Music() {
     <>
       <Head><title>Music — LRL</title></Head>
 
-      {/* Banner */}
       <div className="music-header">
         <img
           src="/assets/channels4_banner.jpg"
@@ -102,7 +101,6 @@ export default function Music() {
           ))}
         </div>
 
-        {/* Patreon + Socials */}
         <div className="music-links">
           <a
             href="https://patreon.com/LarryReidLive"

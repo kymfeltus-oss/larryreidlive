@@ -2,6 +2,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import "../styles/membership.css";
+import "../styles/[pagename].css";
 
 export default function Membership() {
   return (

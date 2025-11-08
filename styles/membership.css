@@ -1,18 +1,17 @@
 /* ===============================
-   MEMBERSHIP PAGE — Dr. Larry Reid Live
+   MEMBERSHIP PAGE — Dr. Larry Reid Live (Polished Layout)
    =============================== */
 
 /* ===== HERO SECTION (Join the Movement) ===== */
 .membership-hero {
   position: relative;
   background: linear-gradient(180deg, rgba(10, 15, 24, 0.95), rgba(10, 15, 24, 1));
-  min-height: 38vh;
+  min-height: 30vh; /* reduced */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
-  padding: 2rem 1rem 1rem;
+  padding: 2rem 1rem 1rem; /* tighter */
 }
 
 .membership-hero .overlay {
@@ -30,8 +29,8 @@
 }
 
 .membership-hero h1 {
-  font-size: clamp(1.9rem, 4.8vw, 2.4rem);
-  margin-bottom: 0.6rem;
+  font-size: clamp(1.8rem, 5vw, 2.3rem);
+  margin-bottom: 0.4rem;
   font-weight: 900;
   color: #ff3b3b;
   text-transform: uppercase;
@@ -40,20 +39,20 @@
 
 .membership-hero p {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.4;
   color: #ccc;
   margin: 0 auto;
-  max-width: 560px;
+  max-width: 500px;
 }
 
 /* ===== MEMBERSHIP TIERS ===== */
 .plans {
   text-align: center;
-  padding: 2.5rem 1.5rem 5rem;
+  padding: 2rem 1rem 4rem;
 }
 
 .plans h2 {
-  font-size: 2rem;
+  font-size: 1.9rem;
   color: #ff3b3b;
   margin-bottom: 0.4rem;
   font-weight: 900;
@@ -61,43 +60,44 @@
 
 .plans .subtext {
   color: #ccc;
-  margin-bottom: 1.5rem;
-  font-size: 1.05rem;
+  margin-bottom: 1.8rem;
+  font-size: 1rem;
 }
 
 .plan-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* ✅ centers all boxes */
   align-items: stretch;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* ===== PLAN CARDS ===== */
+/* ===== INDIVIDUAL PLAN CARDS ===== */
 .plan-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.2rem;
+  border-radius: 1rem;
+  width: 300px; /* ✅ uniform width */
+  text-align: center;
   padding: 2rem 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  height: 100%;
 }
 
 .plan-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(255, 59, 59, 0.25);
+  box-shadow: 0 8px 25px rgba(79, 195, 247, 0.25);
 }
 
 .plan-card h3 {
   color: #ff3b3b;
   font-size: 1.3rem;
-  margin-bottom: 0.5rem;
   font-weight: 800;
+  margin-bottom: 0.5rem;
 }
 
 .plan-card .price {
@@ -110,16 +110,15 @@
 .plan-card ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.5rem 0;
+  margin: 0 auto 1.5rem;
   color: #ccc;
   text-align: left;
+  width: 90%;
   line-height: 1.6;
-  width: 100%;
-  max-width: 240px;
 }
 
 .plan-card li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   padding-left: 1rem;
   position: relative;
 }
@@ -131,30 +130,39 @@
   left: 0;
 }
 
-/* ===== BUTTONS CENTERED IN CARDS ===== */
+/* Highlight / Elite plans */
+.plan-card.highlight {
+  border: 2px solid #4FC3F7;
+  background: rgba(79, 195, 247, 0.07);
+}
+.plan-card.elite {
+  border: 2px solid #b71c1c;
+}
+
+/* ===== BUTTONS (Centered + Same Size) ===== */
 .btn {
   padding: 0.9rem 1.4rem;
   border-radius: 1.2rem;
   font-weight: 800;
   text-transform: uppercase;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
   text-align: center;
-  margin-top: auto;
+  transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
+  display: inline-block;
+  margin: 1rem auto 0;
+  width: 80%;
 }
 
 .btn.primary {
   background: linear-gradient(135deg, #4FC3F7, #0288D1);
   color: #fff;
   border: none;
-  width: 70%;
 }
 
 .btn.outline {
   border: 2px solid #4FC3F7;
   color: #4FC3F7;
   background: transparent;
-  width: 70%;
 }
 
 .btn:hover {
@@ -163,14 +171,14 @@
   color: #fff;
 }
 
-/* ===== CTA SECTION ===== */
+/* ===== WHY JOIN CTA ===== */
 .cta {
   text-align: center;
-  padding: 4rem 1.5rem 5rem;
+  padding: 3.5rem 1.5rem 5rem;
 }
 
 .cta h2 {
-  font-size: 2rem;
+  font-size: 1.9rem;
   color: #ff3b3b;
   margin-bottom: 1rem;
   font-weight: 900;
@@ -180,40 +188,49 @@
   max-width: 700px;
   margin: 0 auto 2rem;
   color: #ccc;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-/* Center Become a Member button */
 .cta .btn.primary {
   display: block;
   margin: 0 auto;
+  width: 220px;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 640px) {
   .membership-hero {
-    min-height: 34vh;
+    min-height: 25vh; /* tighter on mobile */
     padding: 1.5rem 1rem;
   }
 
   .membership-hero h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .membership-hero p {
     font-size: 0.95rem;
   }
 
-  .plans {
-    padding: 2rem 1rem 4rem;
+  .plan-grid {
+    flex-direction: column;
+    align-items: center;
   }
 
   .plan-card {
-    padding: 1.5rem;
+    width: 90%;
+    max-width: 340px;
   }
 
-  .btn.primary,
-  .btn.outline {
+  .btn {
     width: 90%;
+  }
+
+  .plans {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .cta {
+    padding: 2.5rem 1rem 3rem;
   }
 }

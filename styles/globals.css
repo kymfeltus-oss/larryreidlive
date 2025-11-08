@@ -45,4 +45,29 @@
     background: #ff3b3b;
     color: #fff;
   }
+} /* ===== Universal background + section fix ===== */
+html, body {
+  background-color: #0a0f18;   /* your app’s dark theme color */
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
+
+section {
+  background-color: transparent;
+}
+
+#root, main {
+  background-color: #0a0f18;
+  min-height: 100vh;
+}
+
+/* Prevent iOS white safe-area edges */
+@supports (padding: max(0px)) {
+  body {
+    background-color: #0a0f18;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+

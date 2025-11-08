@@ -91,7 +91,10 @@ export default function Member() {
       <section className="member-hub">
         {/* Hybrid LIVE banner (Crowdcast) */}
         {showBanner && (
-          <div className="live-banner fade-in">
+          <div className="live-header">
+  <span className="live-dot" /> <strong>Live Now</strong>
+</div>
+
             <div className="live-header">
               <span className="live-dot" /> <strong>Live Now</strong>
             </div>

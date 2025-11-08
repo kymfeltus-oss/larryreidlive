@@ -10,8 +10,8 @@ export default function BottomTabs() {
       <Link href="/" className={active("/")}>🏠</Link>
       <Link href="/member" className={active("/member")}>📱</Link>
       <Link href="/music" className={active("/music")}>🎵</Link>
-      <Link href="/services" className={active("/services")}>💼</Link>
       <Link href="/membership" className={active("/membership")}>🎟️</Link>
+      <Link href="/services" className={active("/services")}>💼</Link>
     </footer>
   );
 }
